@@ -1,0 +1,27 @@
+.container{
+ text-align: center; 
+ padding-top: 200rpx;
+}
+.headImg{
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 15rpx;
+}
+.miniName{
+  margin-top: 30rpx;
+  font-size: 30rpx;
+  letter-spacing: 4rpx;
+}
+.miniDesc{
+  font-size: 26rpx;
+  margin-top: 20rpx;
+  /* font-family: "SimSun" */
+}
+.loginBtn{
+  width: 80%;
+  line-height: 40px;
+  margin-top: 40px;
+  color: white;
+  font-size: 16px;
+  letter-spacing: 1px;
+}

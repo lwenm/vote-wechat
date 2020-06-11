@@ -1,0 +1,143 @@
+<block wx:if="{{isload}}">
+  <view class='tet'>
+    <view class="container">
+      <image src="{{activity.thumb[0]}}" mode='withFix' class="slide-image" />
+      <view bindtap="bindNoticeTap" class="activityTips" style='background:#f75360;color:#fff;border-color:#fff'>活动说明</view>
+      <view class="titleBox" style='color:#f75360'>{{activity.title}}</view>
+      <view class="endTime">
+        <view class="timeTitle" style='color:#f75360'>{{timeTitle}}</view>
+        <view class="endtime-item" style='color:#737373'>
+          <text style='color:#f75360'>{{obj.day}}</text> 天</view>
+        <view class="endtime-item" style='color:#737373'>
+          <text style='color:#f75360'>{{obj.hou}}</text> 时</view>
+        <view class="endtime-item" style='color:#737373'>
+          <text style='color:#f75360'>{{obj.min}}</text> 分</view>
+        <view class="endtime-item" style='color:#737373'>
+          <text style='color:#f75360'>{{obj.sec}}</text> 秒</view>
+      </view>
+      <view class="tjtools">
+        <view class="tjtools-item" style='border-color:#f75360'>
+          <view class="tjtools-item-num" style='color:#f75360'>{{activity.tj_join_num}}</view>
+          <view class="tjtools-item-title" style='color:#737373'>已报名</view>
+        </view>
+        <view class="tjtools-item" style='border-color:#f75360'>
+          <view class="tjtools-item-num" style='color:#f75360'>{{activity.tj_vote_num}}</view>
+          <view class="tjtools-item-title" style='color:#737373'>累计投票</view>
+        </view>
+        <view class="tjtools-item" style='border-color:#f75360'>
+          <view class="tjtools-item-num" style='color:#f75360'>{{activity.tj_view_num}}</view>
+          <view class="tjtools-item-title" style='color:#737373'>访问量</view>
+        </view>
+      </view>
+      <view class="searchBox">
+        <view class="inputBox">
+          <input bindinput='bindInputTap' style='border-color:#f75360' class="searchinput" placeholder="请输入编号或名称" placeholder-class="inputpc" value='{{searchContent}}'></input>
+          <view bindtap='bindSearchTap' class="searchbtn" style='color:#f75360;border-color:#f75360'>搜索</view>
+        </view>
+      </view>
+      <view class="catebox">
+        <view data-tabindex='1' bindtap='changeTabActive' class="cate-item {{currentTab==1?'cate-item-active':''}}" style="color:{{currentTab==1?'#f75360':''}}">最新</view>
+        <view data-tabindex='2' bindtap='changeTabActive' class="cate-item zhong {{currentTab==2?'cate-item-active':''}}" style="color:{{currentTab==2?'#f75360':''}}">热门</view>
+        <view data-tabindex='3' bindtap="changeTabActive" class="cate-item {{currentTab==3?'cate-item-active':''}}" style="color:{{currentTab==3?'#f75360':''}}">排行榜</view>
+      </view>
+       <view style="display:none">
+          <image wx:for="{{images}}" wx:key="{{baseId}}" id="{{item.baseId}}" src="{{item.thumb}}" bindload="onImageLoad"></image>
+        </view>
+      <view class="tplist" wx:if="{{currentTab!=3 && col1.length>0}}">
+        <view class="img_item">
+          <view class='vote-item' bindtap='bindDetailTap' data-id='{{item.id}}' wx:for="{{col1}}" wx:key="{{index}}">
+            <view class='voteorder'>{{item.number}}</view>
+            <view class='vote-itemfooter'>
+              <view style='color:#fff' class='extra-elips votenickname'>{{item.name}}</view>
+              <view style='color:#fff' class='votenum'>{{item.vote_num}} 票</view>
+            </view>
+            <image class='test' src="{{item.thumb}}" style="width:100%;height:{{item.height}}px"></image>
+          </view>
+        </view>
+        <view class="img_itemT">
+          <view wx:for="{{col2}}" wx:key="{{index}}" bindtap='bindDetailTap' data-id='{{item.id}}' class='vote-item'>
+            <view class='voteorder'>{{item.number}}</view>
+            <view class='vote-itemfooter'>
+              <view style='color:#fff' class='extra-elips votenickname'>{{item.name}}</view>
+              <view style='color:#fff' class='votenum'>{{item.vote_num}} 票</view>
+            </view>
+            <image class='test' src="{{item.thumb}}" style="width:100%;height:{{item.height}}px"></image>
+          </view>
+        </view>
+        <import src="/third-party/templates/view-cells.wxml" />
+        <template wx:if="{{isLoading}}" is="loadMore_loading" />
+        <template wx:if="{{isend}}" is="loadMore_nodata" />
+      </view>
+      <view wx:if="{{isendT}}" class='nodatabox'>
+        <image mode='widthFix' class='nodataimg' src='../../resource/icon/vote-nodata.png'></image>
+        <view class='nodata-title'>暂时没有数据</view>
+      </view>
+      <view wx:if="{{orderlist.length>0 && currentTab==3}}">
+        <view class="order-list">
+          <block wx:for="{{orderlist}}" wx:key="{{index}}">
+            <view class="order-item" data-id='{{item.id}}' catchtap='bindDetailTap'>
+              <image wx:if="{{index==0}}" class="order-tt" src="../../resource/icon/first.png"></image>
+              <image wx:if="{{index==1}}" class="order-tt" src="../../resource/icon/second.png"></image>
+              <image wx:if="{{index==2}}" class="order-tt" src="../../resource/icon/third.png"></image>
+              <view class="ordernum" wx:if="{{index>2}}"  style='color:#f75360'>{{index+1}}</view>
+              <image class="" src='{{item.thumb}}'></image>
+              <view class="order-item-nickname extra-elips" style='color:#737373'>{{item.name}}</view>
+              <view class="signnum-orderitem" style='color:#737373'>共计
+                <text style='color:#f75360'>{{item.vote_num}}</text> 票</view>
+            </view>
+          </block>
+          <import src="/third-party/templates/view-cells.wxml" />
+          <template wx:if="{{isend}}" is="loadMore_nodata" />
+        </view>
+      </view>
+    </view>
+    <block wx:if="{{func_pianshen==0 && share_enabled_index==1}}">
+      <button bindtap='bindShareViewTap' class='share' style="background:#f75360;color:#fff">
+        <view class='iconfont icon-fenxiang shareImage'></view>
+        <view>分享</view>
+      </button>
+    </block>
+    <block wx:if="{{func_pianshen==1 || share_enabled_index==0}}">
+      <button open-type='share' hover-class='none' class='share' style="background:#f75360;color:#fff">
+        <view class='iconfont icon-fenxiang shareImage'></view>
+        <view>分享</view>
+      </button>
+    </block>
+    <view wx:if="{{activity.uid==globaldata.uid && activity.uid}}" bindtap='bindEditTap' class='edit' style="background:#f75360;color:#fff;">
+      <view class='iconfont icon-bianji editImage'></view>
+      <view>编辑</view>
+    </view>
+    <view class="back-bottom" style="padding-bottom:{{isIPhoneX?'20px':'5px'}}">
+      <view class="view-submitA" wx:if="{{activity.uid==globaldata.uid && activity.uid && activity.sign_enabled==1}}" catchtap='bindCheckTap' hoverClass="view-submitA-hilight">{{func_acti_detail_playermanage}}</view>
+      <form report-submit="{{true}}" wx:if="{{activity.uid!=globaldata.uid && activity.uid && activity.sign_enabled==1}}" bindsubmit="bindEnterTap">
+        <button form-type="submit" class="view-submitA"  hoverClass="view-submitA-hilight">{{func_acti_detail_dojoin}}</button>
+      </form>
+      <form wx:if="{{activity.uid==globaldata.uid && activity.uid && activity.sign_enabled==0}}" report-submit="{{true}}" bindsubmit="bindCheckTap">
+       <button form-type="submit" class="view-submitA"  hoverClass="view-submitA-hilight">{{func_acti_detail_playermanage}}</button>
+      </form>
+      <view class="view-submitA" wx:if="{{activity.uid!=globaldata.uid && activity.uid && activity.sign_enabled==0}}" catchtap='bindPublishTap' hoverClass="view-submitA-hilight">发起投票</view>
+      <view bindtap="bindCenterTap" class="view-submitB" data-type="preview" hoverClass="view-submitB-hilight">我的投票</view>
+    </view>
+  </view>
+  <view bindtap='bindShareViewTap' wx:if="{{isShareShow}}" class='giftBoxMask'>
+    <view class='shareBox'>
+      <view class='gifttitle'>快分享出去为TA加油吧~</view>
+      <view class='sharetools' bindtap='bindShareViewTap'>
+        <button hover-class="none" open-type='share' class='friends'>
+          <view class='friends'>
+            <view class='friendsimgbox' style='background:#f75360'>
+              <image class='friendsimg' src='../../resource/icon/wechat.png'></image>
+            </view>
+            <view class='friendtitle'>好友/群</view>
+          </view>
+        </button>
+        <view catchtap='bindShareTap' class='friends'>
+          <view class='friendsimgbox' style='background:#f75360'>
+            <image class='friendsimg' src='../../resource/icon/pyq-index.png '></image>
+          </view>
+          <view class='friendtitle'>朋友圈海报</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</block>

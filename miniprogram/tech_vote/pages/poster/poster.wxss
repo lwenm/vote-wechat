@@ -1,0 +1,40 @@
+.canvas-back {
+    width: 750rpx;
+    height: 1334rpx;
+    margin-top: -3350rpx;
+}
+
+.shareImg {
+    margin-left: 0;
+    margin-top: 0;
+    width: 750rpx;
+    margin-bottom: 168rpx;
+    background: white;
+    position: absolute;
+    z-index: -1;
+}
+
+.view-save {
+    position: fixed;
+    width: 750rpx;
+    font-size: 30rpx;
+    color: white;
+    height: 98rpx;
+    bottom:0;
+    background: linear-gradient(to right,rgb(245,43,85),rgb(255,218,39));
+    font-weight: bold;
+    z-index: 99;
+    line-height: 98rpx;
+    text-align: center;
+}
+.shareimgbox{
+  width: 650rpx;
+  margin-left: 50rpx;
+  text-align: center;
+  padding-top: 20px;
+  }
+  .sharepic{
+    width: 100%;
+    /* box-shadow: 1px 1px 3px #ccc; */
+    border-radius: 5px;
+  }

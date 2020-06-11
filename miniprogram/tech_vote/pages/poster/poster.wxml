@@ -1,0 +1,5 @@
+<image class="shareImg" mode='' src="../../resource/icon/title_bg.png"></image>
+<view class='shareimgbox'>
+	<image class='sharepic' mode='widthFix' src='{{imgurl}}' bindload="imgload" style="box-shadow:{{isload?'1px 1px 3px #ccc':''}}"></image>
+</view>
+<view bindtap="bindSaveImageTap" class="view-save" style="padding-bottom:{{isIPhoneX?'20px':''}}">保存图片</view>

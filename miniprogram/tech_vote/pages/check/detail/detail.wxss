@@ -1,0 +1,71 @@
+page{
+  background: #f0f0f0;
+  padding-bottom: 40rpx;
+}
+.containView{
+  width: 670rpx;
+  margin-left: 20rpx;
+  background: #fff;
+  margin-top: 20rpx;
+  border-radius: 3px;
+  padding: 20rpx;
+}
+.order{
+  font-size: 14px;
+  color: #737373;
+}
+.title{
+  font-size: 14px;
+  letter-spacing: 1rpx;
+  margin-top: 20rpx;
+   color: #737373;
+}
+
+.intro{
+  font-size: 14px;
+  letter-spacing: 1rpx;
+  color: #737373;
+  margin-top: 20rpx;
+}
+.needChoice{
+  display: flex;
+  color: #737373;
+  font-size: 14px;
+  margin-top: 20rpx;
+}
+.needChoice view{
+  flex: 1;
+}
+.intro-image image{
+  width: 670rpx;
+  margin-left: 0rpx;
+  margin-top: 20rpx;
+}
+.submit {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    height: 60rpx;
+    width: 240rpx;
+    border-radius: 48rpx;
+    line-height: 60rpx;
+    margin-top: 40rpx;
+    margin-left: 30rpx;
+    color: #fff;
+     background: linear-gradient(to right,rgb(245,43,85),rgb(255,218,39));
+}
+.submitT {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    height: 60rpx;
+    width: 240rpx;
+    border-radius: 48rpx;
+    line-height: 60rpx;
+    margin-top: 40rpx;
+    margin-left: 130rpx;
+    color: #fff;
+    background: linear-gradient(to right,rgb(2,0,252),rgb(165,72,190));
+}

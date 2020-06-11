@@ -1,0 +1,365 @@
+.line {
+    height: 1px;
+    background: rgba(0,0,0,0.05);
+    width: 714rpx;
+}
+
+.lineA {
+    height: 1px;
+    background: rgba(0,0,0,0.05);
+    margin-left: -36rpx;
+    width: 750rpx;
+}
+
+.lineB {
+    height: 8rpx;
+    background: rgba(0,0,0,0.04);
+    margin-left: -36rpx;
+    width: 750rpx;
+}
+
+.lineC {
+    height: 4rpx;
+    border-bottom: 1px dashed #f75360;
+    width: 80rpx;
+    margin-top: -50rpx;
+}
+
+.lineD {
+    height: 4rpx;
+    border-bottom: 1px dashed rgba(0,0,0,0.2);
+    width: 80rpx;
+    margin-top: -50rpx;
+}
+
+.lineE {
+    height: 1px;
+    background: rgba(0,0,0,0.05);
+    width: 750rpx;
+}
+
+.containerView {
+    display: flex;
+    flex-direction: column;
+    font-size: 28rpx;
+    padding-left: 36rpx;
+    padding-right: 36rpx;
+    padding-bottom: 150rpx;
+}
+
+.back-step {
+    display: flex;
+    flex-direction: row;
+    width: 750rpx;
+    height: 164rpx;
+    align-items: center;
+    justify-content: center;
+}
+
+.back-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 75rpx;
+}
+
+.image-step {
+    width: 26rpx;
+    height: 26rpx;
+    border-radius: 13rpx;
+}
+
+.view-numB {
+    width: 26rpx;
+    height: 26rpx;
+    line-height: 26rpx;
+    font-weight: bold;
+    font-size: 32rpx;
+    color: white;
+    background: rgba(0,0,0,0.2);
+}
+
+.text-titleA {
+    font-size: 24rpx;
+    color: #f75360;
+    margin-top: 14rpx;
+}
+
+.text-titleB {
+    font-size: 24rpx;
+    color: rgba(0,0,0,0.3);
+    margin-top: 14rpx;
+}
+
+.back-itemCell {
+    display: inherit;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 122rpx;
+}
+
+.back-endCount {
+    justify-content: flex-end;
+}
+
+.image-cell {
+    width: 26rpx;
+    height: 28rpx;
+    margin-right: 22rpx;
+}
+
+.static-cell {
+    margin-right: auto;
+}
+
+.switch-cell {
+    color: rgb(247,83,96);
+}
+
+.static-anonymity {
+}
+
+.back-ask {
+    display: inherit;
+    flex-direction: inherit;
+    width: 72rpx;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-right: auto;
+}
+
+.view-startShow {
+    width: 438rpx;
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.image-detail {
+    width: 11rpx;
+    height: 21rpx;
+    margin-left: 18rpx;
+}
+
+.view-select {
+    width: 109rpx;
+    height: 54rpx;
+    margin-right: 26rpx;
+    line-height: 54rpx;
+    text-align: center;
+    color: rgb(247,83,96);
+    border: 1px solid rgb(247,83,96);
+    border-radius: 30rpx;
+}
+
+.view-unSelect {
+    width: 109rpx;
+    height: 54rpx;
+    margin-right: 26rpx;
+    line-height: 54rpx;
+    text-align: center;
+    color: rgba(0,0,0,0.5);
+    border: 1px solid rgba(0,0,0,0.5);
+    border-radius: 30rpx;
+}
+
+.option-endtime {
+    width: 238rpx;
+    text-align: right;
+}
+
+.option-endtime-disable {
+    width: 238rpx;
+    text-align: right;
+}
+
+.option-endcount {
+    width: 238rpx;
+    height: 106rpx;
+    text-align: right;
+    margin-right: 29rpx;
+}
+
+.option-endcount-disable {
+    width: 238rpx;
+    text-align: right;
+    height: 106rpx;
+    color: rgba(0,0,0,0.5);
+    margin-right: 29rpx;
+}
+
+.image-anonymity {
+    width: 29rpx;
+    height: 29rpx;
+}
+
+.back-genderSelect {
+    display: inherit;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    width: 250rpx;
+    height: 122rpx;
+}
+
+.text-genderSelect {
+}
+
+.text-genderUnSelect {
+    color: rgba(0,0,0,0.3);
+}
+
+.back-bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: fixed;
+    width: 750rpx;
+    box-shadow: 0px -1px rgba(0,0,0,0.03);
+    text-align: center;
+    font-size: 28rpx;
+    line-height: 76rpx;
+    background: white;
+    bottom: 0px;
+    z-index: 2;
+}
+
+.view-submitA {
+    font-weight: medium;
+    margin-left: 12rpx;
+    margin-right: 12rpx;
+    margin-top: 11rpx;
+    width: 344rpx;
+    height: 76rpx;
+    border-radius: 38rpx;
+    color: #f75360;
+    background: white;
+    border: 1px solid #f75360;
+}
+
+.view-submitA-hilight {
+    font-weight: medium;
+    margin-left: 12rpx;
+    margin-right: 12rpx;
+    margin-top: 11rpx;
+    width: 344rpx;
+    height: 76rpx;
+    border-radius: 38rpx;
+    color: rgba(247,83,96,0.7);
+    background: white;
+    border: 1px solid rgba(247,83,96,0.7);
+}
+
+.view-submitB {
+    font-weight: medium;
+    margin-left: 12rpx;
+    margin-right: 12rpx;
+    margin-top: 11rpx;
+    width: 344rpx;
+    height: 76rpx;
+    border-radius: 38rpx;
+    color: white;
+    background: linear-gradient(to right,rgb(245,43,85),rgb(255,218,39));
+}
+
+.view-submitB-hilight {
+    font-weight: medium;
+    margin-left: 12rpx;
+    margin-right: 12rpx;
+    margin-top: 11rpx;
+    width: 344rpx;
+    height: 76rpx;
+    border-radius: 38rpx;
+    color: white;
+    background: linear-gradient(to right,rgba(245,43,85,0.8),rgba(255,218,39,0.8));
+}
+
+.cover-timesel {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000;
+    opacity: 0.5;
+    overflow: hidden;
+    z-index: 9000;
+    color: #fff;
+}
+
+.back-timesel {
+    display: flex;
+    flex-direction: column;
+    font-size: 32rpx;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 9999;
+    background: #f9f9f9;
+}
+
+.view-timeselconfirm {
+    width: 100%;
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: center;
+}
+
+.picker-start {
+    display: inherit;
+    flex-direction: inherit;
+    width: 100%;
+}
+
+.view-startSelect {
+    width: 100%;
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: center;
+}
+
+.lineF {
+    width: 100%;
+}
+.back-allBonus {
+    display: inherit;
+    flex-direction: inherit;
+}
+.back-item {
+    display: inherit;
+    flex-direction: row;
+    align-items: center;
+    height: 122rpx;
+}
+
+.static-bonusOn {
+    margin-right: auto;
+}
+.back-showImg {
+  margin-right: 10rpx;
+    
+}
+.input-bonus {
+    height: 106rpx;
+    text-align: right;
+    margin-right: 10rpx;
+    width: 400rpx;
+}
+.image-AddImg {
+    width: 80rpx;
+    height: 80rpx;
+}
+.choiceTab{
+  width: 500rpx;
+  text-align: right;
+}
+.votenum{
+  width: 450rpx;
+  text-align: right;
+}
+.ip_num{
+  width: 300rpx;
+  text-align: right;
+}

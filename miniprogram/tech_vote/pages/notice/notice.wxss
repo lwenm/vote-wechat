@@ -1,0 +1,95 @@
+.container {
+  padding: 20rpx;
+}
+
+.title {
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+.header{
+  margin-top: 20rpx;
+}
+.headimg{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+.namephone{
+  font-size: 14px;
+  display: inline-block;
+  width:500rpx;
+  vertical-align: middle;
+  height: 80rpx; 
+  margin-left: 20rpx;
+  color: #737373;
+}
+.namephoneT{
+  font-size: 14px;
+  display: inline-block;
+  width:500rpx;
+  vertical-align: middle;
+  height: 80rpx; 
+  line-height: 80rpx;
+  margin-left: 20rpx;
+  color: #737373;
+}
+
+.activityTime{
+  font-size: 14px;
+  color: #737373;
+  margin-top: 20rpx;
+}
+.activityTime view{
+  margin-top: 20rpx;
+}
+.timeBox{
+  margin-top: 20rpx;
+  
+}
+.timetitle{
+  font-size: 15px;
+  line-height: 50rpx;
+}
+.timetitle image{
+  width: 30rpx;
+  height: 30rpx;
+  vertical-align: middle;
+  line-height: 50rpx;
+}
+.timetitle view{
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 20rpx;
+}
+.voteRule{
+  margin-top: 20rpx;
+}
+.noticeImage{
+  margin-top: 20rpx;
+  width: 100%;
+}
+.wechatbox{
+  display: flex;
+  margin-top: 0px !important;
+}
+.wechattitle{
+  flex: 2;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.wechat{
+  flex: 1;
+  text-align: right;
+}
+.wechat image{
+  width: 80rpx;
+  height: 80rpx;
+}
+.timepicT{
+width:26rpx !important;
+vertical-align:middle;
+line-height:50rpx;
+
+}

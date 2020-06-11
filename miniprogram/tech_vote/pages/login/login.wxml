@@ -1,0 +1,11 @@
+<view wx:if="{{isload}}" class="container">
+ <view class="imgBox">
+ <image class="headImg" src="{{appInfo.app_thumb}}"></image>
+ </view>
+ <view class="miniName">{{appInfo.app_name}}</view>
+ <view class="miniDesc">{{appInfo.app_intro}}</view>
+ <view class="loginBox">
+ <button class="loginBtn" style="background:#F75360;color:#fff" open-type="getUserInfo" bindgetuserinfo="updateUserInfo">微信一键登录</button>
+ <button class="loginBtn" style="color:#F75360; margin-top:20px;" bindtap="gofanhui">取消登录</button>
+ </view>
+</view>

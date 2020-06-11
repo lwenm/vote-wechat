@@ -1,0 +1,37 @@
+<view class="headTab">
+  <view data-tabindex='0' bindtap='changeTabActive' style="color:{{currentTab==0?'#f75360':''}}">待审核</view>
+  <view data-tabindex='1' bindtap='changeTabActive' style="color:{{currentTab==1?'#f75360':''}}">已通过</view>
+  <view data-tabindex='2' bindtap='changeTabActive' style="color:{{currentTab==2?'#f75360':''}}">已拒绝</view>
+</view>
+<view class="waitCheck">
+  <block wx:for="{{datalist}}" wx:key="{{index}}">
+    <view class="check-item" bindtap="godetail" data-id='{{item.id}}'>
+      <view class="check-item-header">
+        <view>时间：{{item.c_time}}</view>
+        <view wx:if="{{currentTab==0}}" class="status" style="color:{{currentTab==0?'#f75360':''}}">待审核</view>
+        <view wx:if="{{currentTab==1}}" class="status" style="color:{{currentTab==1?'#f75360':''}}">已通过</view>
+        <view wx:if="{{currentTab==2}}" class="status" style="color:{{currentTab==2?'#f75360':''}}">已拒绝</view>
+      </view>
+      <view class="check-item-body">
+        <image class="bodyimage" src="{{item.thumb}}"></image>
+        <view class="bodyview">
+          <view class="title extra-elips">{{item.name}}</view>
+          <view class="intro extra-elips2">{{item.intro}}</view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <view wx:if="{{isendT}}" class='nodatabox'>
+    <image mode='widthFix' class='nodataimg' src='../../resource/icon/vote-nodata.png'></image>
+    <view class='nodata-title'>暂时没有数据</view>
+  </view>
+</view>
+<import src="/third-party/templates/view-cells.wxml" />
+<template wx:if="{{isLoading}}" is="loadMore_loading" />
+<template wx:if="{{isend}}" is="loadMore_nodata" />
+<view class="back-bottom" style="padding-bottom:{{isIPhoneX?'20px':'5px'}}">
+<view bindtap="bindBackTap" class="view-submitA" data-type="preview" hoverClass="none">返回活动</view>
+  <form report-submit="{{true}}" bindsubmit="bindEnterTap">
+    <button form-type="submit" class=" view-submitB" hoverClass="none">{{func_check_addplayer}}</button>
+  </form>
+</view>

@@ -1,0 +1,45 @@
+
+<view>
+  <view class="headerBox">
+    <view class="secondBox">
+      <image src='{{topThreeArr[1].thumb}}'></image>
+      <view class="order-second">2</view>
+      <view class="nickname extra-elips">{{topThreeArr[1].name}}</view>
+    </view>
+    <view class="signnum-second">
+      共计{{topThreeArr[1].vote_num}}票
+    </view>
+    <view class="firstBox">
+      <image src='{{topThreeArr[0].thumb}}'></image>
+      <view class="order-first">1</view>
+      <view class="nickname-first extra-elips">{{topThreeArr[0].name}}</view>
+    </view>
+    <view class="signnum-first">
+      共计{{topThreeArr[0].vote_num}}票
+    </view>
+    <view class="thirdBox">
+      <image src='{{topThreeArr[2].thumb}}'></image>
+      <view class="order-third">3</view>
+      <view class="nickname-third extra-elips">{{topThreeArr[2].name}}</view>
+    </view>
+    <view class="signnum-third">
+      共计{{topThreeArr[2].vote_num}}票
+    </view>
+  </view>
+  <view class="order-list">
+    <block wx:for="{{bottomSignArr}}" wx:key="{{index}}">
+      <block wx:if="{{index>2}}">
+        <view class="order-item">
+          
+          <view class="ordernum">{{index+1}}</view>
+          <image class="" src='{{item.thumb}}'></image>
+          <view class="order-item-nickname">{{item.name}}</view>
+          <view class="signnum-orderitem">共计 <text>{{item.vote_num}}</text> 票</view>
+        </view>
+      </block>
+    </block>
+  </view>
+  <view class="weui-loadmore weui-loadmore_line">
+    <view class="weui-loadmore__tips weui-loadmore__tips_in-line">已经显示全部</view>
+  </view>
+</view>

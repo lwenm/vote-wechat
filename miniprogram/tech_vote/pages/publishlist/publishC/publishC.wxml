@@ -1,0 +1,89 @@
+<view class="back-step">
+  <view class="back-cell">
+    <image class="image-step" src="../../../resource/icon/publish/1_pressed.png"></image>
+    <text class="text-titleA">活动内容</text>
+  </view>
+  <view class="lineC"></view>
+  <view class="back-cell">
+    <image class="image-step" src="../../../resource/icon/publish/2_pressed.png"></image>
+    <text class="text-titleA">活动选项</text>
+  </view>
+  <view class="lineC"></view>
+  <view class="back-cell">
+    <image class="image-step" src="../../../resource/icon/publish/3_pressed.png"></image>
+    <text class="text-titleA">高级选项</text>
+  </view>
+  <view class="lineD"></view>
+  <view class="back-cell">
+    <image class="image-step" src="../../../resource/icon/publish/4_normal.png"></image>
+    <text class="text-titleB">活动奖励</text>
+  </view>
+</view>
+<view class="lineE"></view>
+<view class="containerView">
+
+  <!-- <view class="lineA"></view>
+  <view class="back-itemCell">
+    <image class="image-cell" src="../../../resource/icon/publish/muban.png"></image>
+    <text class="static-cell">主题模板</text>
+    <picker class="zbfname-right-item" mode="selector" value="{{index_mb}}" range="{{mubanarr}}" range-key="{{'name'}}" bindchange="bindmbChange">
+      <view class='choiceTab'>{{mubanarr[index_mb].name}}</view>
+    </picker>
+  </view>
+  <view class="lineA"></view> -->
+  <view class="back-itemCell">
+    <image class="image-cell" src="../../../resource/icon/publish/pic.png"></image>
+    <text class="static-cell">投票分享图片</text>
+    <view bindtap="bindzbfCode" class="back-showImg" data-index="{{1}}">
+      <image class="image-AddImg" src="{{share_thumb.length>0?attachurl+share_thumb[0]:'../../../resource/icon/publish/addImg.png'}}"></image>
+    </view>
+  </view>
+  <view class="lineA"></view>
+  <view class="back-itemCell">
+    <image class="image-cell" src="../../../resource/icon/publish/vote.png"></image>
+    <text class="static-cell">每日投票次数</text>
+    <picker class="zbfname-right-item" mode="selector" value="{{index_voteNum}}" range="{{tp_everyday_num_arr}}" bindchange="bindVoteNumChange">
+      <view class='votenum'>{{tp_everyday_num_arr[index_voteNum]}}</view>
+    </picker>
+  </view>
+  <view class="lineA"></view>
+  <view class="back-itemCell">
+    <image class="image-cell" src="../../../resource/icon/publish/repeat.png"></image>
+    <text class="static-cell">是否重复投票</text>
+    <switch bindchange="bindRepeatVoteChange" checked="{{repeatVoteChange}}" class="switch-cell" color="rgb(247, 83, 96)"></switch>
+  </view>
+  <view class="lineA"></view>
+  <view class="back-itemCell">
+    <image class="image-cell" src="../../../resource/icon/publish/address.png"></image>
+    <text class="static-cell">地区和IP限制</text>
+    <switch bindchange="bindAreaIPChange" checked="{{areaIPChange}}" class="switch-cell" color="rgb(247, 83, 96)"></switch>
+  </view>
+  <view class="lineA"></view>
+  <block wx:if="{{areaIPChange}}">
+    <view class="back-itemCell">
+      <image class="image-cell" src="../../../resource/icon/publish/address.png"></image>
+      <text class="static-cell">限定地区</text>
+      <picker class="zbfname-right-item" mode="region" value="{{region}}" custom-item="{{'全部'}}" bindchange="bindRegionChange">
+        <view class='choiceTab'>{{region[0]}}，{{region[1]}}，{{region[2]}}</view>
+      </picker>
+    </view>
+    <view class="line"></view>
+    <view class="back-itemCell">
+      <image class="image-cell" src="../../../resource/icon/publish/ip.png"></image>
+      <text class="static-cell">同一IP可投票微信号数量</text>
+      <picker class="zbfname-right-item" mode="selector" value="{{index_voteWeChat}}" range="{{dq_ip_num_arr}}" bindchange="bindVoteWeChatChange">
+        <view class='ip_num'>{{dq_ip_num_arr[index_voteWeChat]}}</view>
+      </picker>
+    </view>
+    <view class="lineA"></view>
+  </block>
+  <view class="back-itemCell">
+    <image class="image-cell" src="../../../resource/icon/publish/home.png"></image>
+    <text class="static-cell">是否展示在活动大厅</text>
+    <switch bindchange="bindlist_enabledChange" checked="{{list_enabled}}" class="switch-cell" color="rgb(247, 83, 96)"></switch>
+  </view>
+</view>
+<view class="back-bottom" style="padding-bottom:{{isIPhoneX?'20px':'5px'}}">
+  <view bindtap="bindLastTap" class="view-submitA" hoverClass="view-submitA-hilight">上一步</view>
+  <view bindtap="nextPage" class="view-submitB" data-type="preview" hoverClass="view-submitB-hilight">下一步</view>
+</view>

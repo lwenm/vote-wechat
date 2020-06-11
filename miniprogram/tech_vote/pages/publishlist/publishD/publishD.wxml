@@ -1,0 +1,52 @@
+<view class="back-step">
+  <view class="back-cell">
+    <image class="image-step" src="../../../resource/icon/publish/1_pressed.png"></image>
+    <text class="text-titleA">活动内容</text>
+  </view>
+  <view class="lineC"></view>
+  <view class="back-cell">
+    <image class="image-step" src="../../../resource/icon/publish/2_pressed.png"></image>
+    <text class="text-titleA">活动选项</text>
+  </view>
+  <view class="lineC"></view>
+  <view class="back-cell">
+    <image class="image-step" src="../../../resource/icon/publish/3_pressed.png"></image>
+    <text class="text-titleA">高级选项</text>
+  </view>
+  <view class="lineC"></view>
+  <view class="back-cell">
+    <image class="image-step" src="../../../resource/icon/publish/4_pressed.png"></image>
+    <text class="text-titleA">活动奖励</text>
+  </view>
+</view>
+<view class="lineE"></view>
+<view class="containerView">
+  <view class="back-themeA">
+    <image class="image-theme" src="../../../resource/icon/reward.png"></image>
+    <text class="static-theme">活动奖励</text>
+  </view>
+  <view class="back-rich">
+    <!-- <input  bindinput="bindIntroInput" class="textarea-rich"  maxlength="-1" placeholder="请输入活动奖励" placeholderStyle="color: rgba(0,0,0,0.3)" value="{{reward}}"></input> -->
+        <textarea class="textarea-rich" auto-height="{{true}}" bindinput="bindIntroInput" maxlength="-1" placeholder="请输入活动奖励" placeholderStyle="color: rgba(0,0,0,0.3)" value='{{reward}}'/>
+    <block wx:for="{{reward_image}}" wx:key="{{index}}">
+      <view bindtap="introImgDelete" class="back-imgDelete">
+        <image class="image-imgDelete" src="../../../resource/icon/publish/delete.png"></image>
+      </view>
+      <image class="image-richImg" mode="widthFix" src="{{attachurl+item}}"></image>
+    </block>
+  </view>
+  <view class="back-desCount">
+    <view bindtap="bindAddImg" class="back-addImg">
+      <image class="image-addImg" src="../../../resource/icon/publish/pic.png"></image>
+      <text class="text-addImg">添加图片</text>
+    </view>
+  </view>
+</view>
+<view class="back-bottom" style="padding-bottom:{{isIPhoneX?'20px':'5px'}}">
+  <view bindtap="bindLastTap" class="view-submitA" hoverClass="view-submitA-hilight">上一步</view>
+  <form bindsubmit="formSubmit" report-submit="{{true}}">
+<button form-type="submit" class="view-submitB" hoverClass="view-submitB-hilight">立即发起</button>
+  </form>
+  
+</view>
+<view wx:if='{{updata}}' catchtap='stopPop' class="mask"></view>

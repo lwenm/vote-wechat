@@ -1,0 +1,91 @@
+<view class="containerview">
+  <view class="headview">
+    <image class="title_bg" src="../../resource/icon/title_bg.png"></image>
+    <image class="headImage" src="{{headimgurl}}"></image>
+    <text class="userName">{{nickname}}</text>
+    <view class="votecountback">
+      <view bindtap="bindAllVoteTap" data-type='0' class="countleft countContainer">
+        <text class="count-text">{{activity_fq_num}}</text>
+        <text class="count-des">发起的投票</text>
+      </view>
+      <view class="lineleft"></view>
+      <view bindtap="bindAllVoteTap" data-type='1' class="countcenter countContainer">
+        <text class="count-text">{{activity_bm_num}}</text>
+        <text class="count-des">报名的投票</text>
+      </view>
+      <view class="lineright"></view>
+      <view bindtap="bindAllVoteTap" data-type='2' class="countright countContainer">
+        <text class="count-text">{{activity_cy_num}}</text>
+        <text class="count-des">参与的投票</text>
+      </view>
+    </view>
+  </view>
+  <view class="listView">
+    <view bindtap="bindAllVoteTap" data-type='3' class="item-back">
+      <image class="item-image" src="../../resource/icon/zj.png"></image>
+      <text class="item-title item-titleB">我的足迹</text>
+      <image class="item-detail" src="../../resource/icon/detail.png"></image>
+    </view>
+    <view class="lineB"></view>
+    <view bindtap="bindQSTap" class="item-back">
+      <image class="item-image" src="../../resource/icon/problem.png"></image>
+      <text class="item-title item-titleB">常见问题</text>
+      <image class="item-detail" src="../../resource/icon/detail.png"></image>
+    </view>
+    <view class="lineB"></view>
+    <view class="item-back">
+      <image class="item-image" src="../../resource/icon/contact.png"></image>
+      <text class="item-title item-titleB">联系客服</text>
+      <image class="item-detail" src="../../resource/icon/detail.png"></image>
+      <button class="button-contact" open-type='contact'>联系客服</button>
+    </view>
+    <view class="lineB"></view>
+    <view bindtap="bindGZHTap" class="item-back">
+      <image class="item-image" src="../../resource/icon/link.png"></image>
+      <text class="item-title item-titleB">关联公众号</text>
+      <image class="item-detail" src="../../resource/icon/detail.png"></image>
+    </view>
+    <view class="lineB"></view>
+  </view>
+  <block wx:if="{{adlist.type==1}}">
+    <view class="ad_list">
+      <ad style="height: 80px;" unit-id="{{adlist.llz_id}}"></ad>
+    </view>
+  </block>
+  <block wx:if="{{adlist.type==2}}">
+    <view class="adBox">
+      <swiper wx:if="{{adlist.data!=null}}" indicator-dots="{{false}}" autoplay="{{true}}" interval="3000" circular="{{true}}" class="adswiper">
+        <block wx:for="{{adlist.data}}" wx:key="{{index}}">
+          <block wx:if="{{item.info==1}}">
+            <swiper-item>
+              <navigator target="miniProgram" path="{{item.path}}" app-id="{{item.id}}" version="release" open-type="navigate" hover-class="active">
+                <image src="{{item.thumb}}"></image>
+              </navigator>
+            </swiper-item>
+          </block>
+          <block wx:if="{{item.info==2}}">
+            <swiper-item data-url="{{item.path}}" bindtap="bindAdTap">
+              <!-- <navigator url="../webview/webview?datasrc={{item.path}}" open-type="navigate" hover-class="active"> -->
+                <image src="{{item.thumb}}"></image>
+              <!-- </navigator> -->
+            </swiper-item>
+          </block>
+          <block wx:if="{{item.info==3}}">
+            <swiper-item data-phonenum="{{item.path}}" bindtap="makePhoneCall">
+              <image src="{{item.thumb}}"></image>
+            </swiper-item>
+          </block>
+          <block wx:if="{{item.info==4}}">
+            <swiper-item>
+              <button open-type='contact'>
+                <image src="{{item.thumb}}"></image>
+              </button>
+            </swiper-item>
+          </block>
+        </block>
+      </swiper>
+    </view>
+  </block>
+</view>
+<import src="/third-party/templates/footer.wxml" />
+<template is="footerWx" data="{{...tabBar,isIPhoneX}}" />

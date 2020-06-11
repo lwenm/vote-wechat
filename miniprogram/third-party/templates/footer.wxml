@@ -1,0 +1,65 @@
+<template name="footerWx">
+  <view wx:if="{{list}}" class="we7-bottom" style="background-color:{{backgroundColor}};padding-bottom:{{isIPhoneX?'20px':''}}">
+    <block wx:for="{{list}}" wx:key="{{index}}">
+      <!-- 页面内跳转 -->
+      <block wx:if="{{item.type==1}}">
+        <view class="we7-bottom-item" wx:if="{{item.pageUrl == ('/' + thisurl)}}" hover-class="active">
+          <navigator url="{{item.pagePath}}" open-type="switchTab" hover-class="active">
+            <image src="{{item.selectedIconPath}}" mode="widthFix" class="item-img"></image>
+            <view class="item-text" style="color: {{selectedColor}};">{{item.text}}</view>
+          </navigator>
+        </view>
+        <view class="we7-bottom-item" wx:else hover-class="active">
+          <navigator url="{{item.pagePath}}" open-type="switchTab" hover-class="active">
+            <image src="{{item.iconPath}}" mode="widthFix" class="item-img"></image>
+            <view class="item-text" style="color: {{color}}">{{item.text}}</view>
+          </navigator>
+        </view>
+      </block>
+      <!-- 跳转其他小程序 -->
+      <block wx:if="{{item.type==2}}">
+        <view class="we7-bottom-item" hover-class="active">
+          <navigator target="miniProgram" path="{{item.pagePath}}" app-id="{{item.appid}}" version="release" open-type="navigate" hover-class="active">
+            <image src="{{item.iconPath}}" mode="widthFix" class="item-img"></image>
+            <view class="item-text" style="color: {{color}};">{{item.text}}</view>
+          </navigator>
+        </view>
+      </block>
+      <!-- 跳转其他页面 -->
+      <block wx:if="{{item.type==3}}">
+        <view class="we7-bottom-item" hover-class="active">
+          <navigator url="../webpage/webpage?datasrc={{item.pagePath}}" open-type="navigate" hover-class="active">
+            <image src="{{item.iconPath}}" mode="widthFix" class="item-img"></image>
+            <view class="item-text" style="color: {{color}};">{{item.text}}</view>
+          </navigator>
+        </view>
+      </block>
+      <!-- 电话 -->
+      <block wx:if="{{item.type==4}}">
+        <view class="we7-bottom-item" data-phonenum="{{item.pagePath}}" bindtap="makePhoneCall" hover-class="active">
+          <image src="{{item.iconPath}}" mode="widthFix" class="item-img"></image>
+          <view class="item-text" style="color: {{color}};">{{item.text}}</view>
+        </view>
+      </block>
+      <block wx:if="{{item.type==5}}">
+      <form report-submit="{{true}}"  class="we7-bottom-item" bindsubmit="bindPublishTap" >
+      <button class="we7-bottom-item" form-type="submit" data-path='{{item.pagePath}}' wx:if="{{item.pageUrl == ('/' + thisurl)}}" hover-class="active">
+          <image src="{{item.selectedIconPath}}"  class="item-imgt"></image>
+          <view class="item-text" style="color: {{selectedColor}};">{{item.text}}</view>
+      </button>
+      <button class="we7-bottom-item" form-type="submit"  wx:else data-path='{{item.pagePath}}' hover-class="active">
+          <image src="{{item.iconPath}}"  class="item-imgt"></image>
+          <view class="item-text" style="color: {{selectedColor}}">{{item.text}}</view>
+      </button>
+      </form>
+    </block>
+    </block>
+    
+  </view>
+  <view class="we7-bottom-placeholder"></view>
+</template>
+<template name="goHome">
+  <navigator url="/we7/pages/index/index" open-type="redirect" class="goHome" hover-class="active">
+    <image src="/we7/resource/images/home.png" mode="widthFix"></image>
+  </navigator>
+</template>

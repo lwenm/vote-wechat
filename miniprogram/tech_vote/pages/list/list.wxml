@@ -1,0 +1,36 @@
+<view class="container">
+  <image class="title_bg" src="../../resource/icon/title_bg.png"></image>
+  <view class="votelist">
+    <block wx:for='{{votelist}}' wx:key="index">
+      <view bindtap='bindDetailTap' data-id='{{item.id}}' class='viewitem'>
+        <image class='headImage' src='{{item.thumb[0]}}'></image>
+        <view class='item-title'>{{item.title}}</view>
+        <view class="back-bonus">
+          <image class="image-cash" src="../../resource/icon/publish/each.png"></image>
+          <text class="text-bonus">{{item.tj_join_num}}人参与，已投{{item.tj_vote_num}}票</text>
+        </view>
+        <view class="back-finish">
+          <text class="text-endcounttime">{{item.vote_stop_time}} 结束</text>
+          <view class="back-voted" wx:if="{{item.maketoactivity==1}}">
+            <image class="image-voted" src="../../resource/icon/mark.png"></image>
+            <text class="text-voted">已参与</text>
+          </view>
+          <view class="back-voted" wx:if="{{item.maketoactivity==2}}">
+            <image class="image-voted" src="../../resource/icon/mark.png"></image>
+            <text class="text-voted">已报名</text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+  
+  <import src="/third-party/templates/view-cells.wxml" />
+  <template wx:if="{{isLoading}}" is="loadMore_loading" />
+  <template wx:if="{{isend}}" is="loadMore_nodata" />
+</view>
+<view wx:if="{{isendT}}" class='nodatabox'>
+    <image mode='widthFix' class='nodataimg' src='../../resource/icon/vote-nodata.png'></image>
+    <view class='nodata-title'>暂时没有数据</view>
+  </view>
+<import src="/third-party/templates/footer.wxml" />
+<template is="footerWx" data="{{...tabBar,isIPhoneX}}" />

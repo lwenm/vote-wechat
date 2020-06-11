@@ -1,0 +1,68 @@
+<view class="back-step">
+  <view class="back-cell">
+    <image class="image-step" src="../../../resource/icon/publish/1_pressed.png"></image>
+    <text class="text-titleA">活动内容</text>
+  </view>
+  <view class="lineC"></view>
+  <view class="back-cell">
+    <image class="image-step" src="../../../resource/icon/publish/2_normal.png"></image>
+    <text class="text-titleB">活动选项</text>
+  </view>
+  <view class="lineD"></view>
+  <view class="back-cell">
+    <image class="image-step" src="../../../resource/icon/publish/3_normal.png"></image>
+    <text class="text-titleB">高级选项</text>
+  </view>
+  <view class="lineD"></view>
+  <view class="back-cell">
+    <image class="image-step" src="../../../resource/icon/publish/4_normal.png"></image>
+    <text class="text-titleB">活动奖励</text>
+  </view>
+</view>
+<view class="headBack">
+  <image class="headImage" src="{{thumb.length>0?attachurl+thumb[0]:attachurl+thumb_arr[0]}}"></image>
+  <image bindtap="choosethumb" class="changeImage" src="../../../resource/icon/publish/changeImg.png"></image>
+  <!-- <view bindtap="bindSwitchImgTap" class="back-switchImg" wx:if="{{switchImgs.length>1}}">
+        <image class="image-switchImg" src="/resources/images/issue/switch.png"></image>
+        <text>换一换</text>
+    </view> -->
+</view>
+<view class="containerView">
+  <view class="back-themeA">
+    <image class="image-theme" src="../../../resource/icon/publish/theme.png"></image>
+    <text class="static-theme">投票主题</text>
+  </view>
+  <view class="back-themeB">
+    <input bindinput="bindThemeInput" class="input-theme" maxlength="20" placeholder="请输入投票主题" placeholderClass="phcolor" placeholderStyle="color: rgba(0,0,0,0.3)" value="{{title}}"></input>
+    <text class="text-count" style="color: rgba(0, 0, 0, 0.3);" wx:if="{{themeCount<=20}}">{{themeCount}}/20</text>
+    <text class="text-count" style="color: red;" wx:elif="{{themeCount>20}}">{{themeCount}}/40</text>
+  </view>
+  <view class="lineA"></view>
+  <view class="back-themeA">
+    <image class="image-theme" src="../../../resource/icon/publish/description.png"></image>
+    <text class="static-theme">投票介绍</text>
+  </view>
+  <view class="back-rich">
+    <textarea class="textarea-rich" bindinput="bindIntroInput" auto-height="{{true}}" maxlength="-1" placeholder="请输入投票介绍" placeholderStyle="color: rgba(0,0,0,0.3)" value="{{intro}}"/>
+    <!-- <input auto-height="{{true}}" bindinput="bindIntroInput" class="textarea-rich"  maxlength="-1" placeholder="请输入投票介绍" placeholderStyle="color: rgba(0,0,0,0.3)" value="{{intro}}"></input> -->
+    <block wx:for="{{imagelist}}" wx:key="{{index}}">
+      <view bindtap="introImgDelete" class="back-imgDelete" data-index="{{index}}">
+        <image class="image-imgDelete" src="../../../resource/icon/publish/delete.png"></image>
+      </view>
+      <image class="image-richImg" mode="widthFix" src="{{attachurl+item}}"></image>
+    </block>
+  </view>
+  <view class="back-desCount">
+    <view bindtap="bindAddImg" class="back-addImg">
+      <image class="image-addImg" src="../../../resource/icon/publish/pic.png"></image>
+      <text class="text-addImg">添加图片</text>
+    </view>
+  </view>
+  <view class="lineA"></view>
+  
+</view>
+<view class="back-bottom" style="padding-bottom:{{isIPhoneX?'20px':'5px'}}">
+  <view bindtap="bindLastTap" class="view-submitA" hoverClass="view-submitA-hilight">上一步</view>
+  <view bindtap="nextPage" class="view-submitB" data-type="preview" hoverClass="view-submitB-hilight">下一步</view>
+</view>
+<view  ><canvas  canvas-id="attendCanvasId" style="position:fixed;top:-9999999px"></canvas></view>

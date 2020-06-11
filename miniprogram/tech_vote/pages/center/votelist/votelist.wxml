@@ -1,0 +1,26 @@
+<view class="containerview">
+  <view bindtap="bindItemTap" class="itemback" data-voteid="{{item.id}}" wx:for="{{votelist}}" wx:key="{{index}}">
+    <image class="item-image" src="{{item.thumb}}"></image>
+    <view class="view-typeC" catchtap="bindDeleteTap" data-index='{{index}}' data-id='{{item.id}}' wx:if="{{type==0}}">删除</view>
+    <view class="view-typeB" wx:if="{{item.status_activity==0}}">未开始</view>
+    <view class="view-typeA" wx:if="{{item.status_activity==1}}">投票中</view>
+    <view class="view-typeB" wx:if="{{item.status_activity==2}}">已结束</view>
+    <view class="view-typeB" wx:if="{{item.status_activity==3}}">待审核</view>
+    <view class="view-typeB" wx:if="{{item.status_activity==4}}">未通过</view>
+    <view class="back-title back-titleA">
+      <text class="item-title">{{item.title}}</text>
+    </view>
+    <view class="back-bonus">
+      <image class="image-cash" src="../../../resource/icon/publish/each.png"></image>
+      <text class="text-bonus">{{item.tj_join_num}}人参加 已投{{item.tj_vote_num}}票</text>
+      <text class="text-endtime">{{item.c_time}}</text>
+    </view>
+  </view>
+    <import src="/third-party/templates/view-cells.wxml" />
+    <template wx:if="{{isLoading}}" is="loadMore_loading" />
+    <template wx:if="{{isend}}" is="loadMore_nodata" />
+</view>
+<view wx:if="{{isendT}}" class='nodatabox'>
+    <image mode='widthFix' class='nodataimg' src='../../../resource/icon/vote-nodata.png'></image>
+    <view class='nodata-title'>暂时没有数据</view>
+  </view>

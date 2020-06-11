@@ -1,0 +1,66 @@
+<form report-submit="{{true}}" bindsubmit='bindSubmitTap'>
+  <view class="containerView">
+    <view class="back-themeA">
+      <image class="image-theme" src="../../resource/icon/publish/theme.png"></image>
+      <text class="static-theme">参赛名称</text>
+    </view>
+    <view class="back-rich">
+      <input bindinput="bindNameInput" class="textarea-rich" maxlength="-1" placeholder="请输入参赛名称" placeholderStyle="color: rgba(0,0,0,0.3)" value=""></input>
+    </view>
+    <view class="lineA"></view>
+    <view class="back-themeA">
+      <image class="image-theme" src="../../resource/icon/publish/theme.png"></image>
+      <text class="static-theme">参赛介绍</text>
+    </view>
+    <view class="back-rich">
+     <textarea class="textarea-rich" bindinput="bindIntroInput" auto-height="{{true}}" maxlength="-1" placeholder="请输入参赛介绍" placeholderStyle="color: rgba(0,0,0,0.3)" value=""/>
+      <!-- <input bindinput="bindIntroInput" class="textarea-rich" cursor-spacing="80rpx" maxlength="-1" placeholder="请输入参赛介绍" placeholderStyle="color: rgba(0,0,0,0.3)" value=""></input> -->
+    </view>
+    <view class='back-rich'>
+      <block wx:for="{{thumb}}" wx:key="{{index}}">
+        <view bindtap="introImgDelete" class="back-imgDelete" data-index="{{index}}">
+          <image class="image-imgDelete" src="../../resource/icon/publish/delete.png"></image>
+        </view>
+        <image class="image-richImg" mode="widthFix" src="{{attachurl+item}}"></image>
+      </block>
+    </view>
+    <view class="back-desCount">
+      <view bindtap="choosethumb" class="back-addImg">
+        <image class="image-addImg" src="../../resource/icon/publish/pic.png"></image>
+        <text class="text-addImg">参赛图片</text>
+      </view>
+    </view>
+  </view>
+  <view class="containerViewT">
+    <block wx:if="{{sign_phone_need==1}}">
+      <view class="back-themeA">
+        <image class="image-theme" src="../../resource/icon/publish/theme.png"></image>
+        <text class="static-theme">联系电话</text>
+      </view>
+      <view class="back-rich">
+        <input bindinput="bindPhoneInput" type='number' class="textarea-rich" placeholder="请输入联系电话，仅主办方可见" placeholderStyle="color: rgba(0,0,0,0.3)" value=""></input>
+      </view>
+      <view class="lineA"></view>
+    </block>
+    <block wx:if="{{sign_wechat_need==1}}">
+      <view class="back-themeA">
+        <image class="image-theme" src="../../resource/icon/publish/theme.png"></image>
+        <text class="static-theme">微信号</text>
+      </view>
+      <view class="back-rich">
+        <input bindinput="bindWeChatInput" class="textarea-rich" maxlength="-1" placeholder="请输入微信号，仅主办方可见" placeholderStyle="color: rgba(0,0,0,0.3)" value="{{reward}}"></input>
+      </view>
+      <view class="lineA"></view>
+    </block>
+    <view class="back-allBonus">
+      <view class="back-item">
+        <text class="static-bonusOn">自定义分享图片</text>
+        <view bindtap="chooseShareThumb" class="back-showImg">
+          <image class="image-AddImg" src="{{share_thumb.length>0?attachurl+share_thumb[0]:'../../resource/icon/publish/addImg.png'}}"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <button form-type='submit' class="submit" style='background:{{colorarr.title_background}}'>立即报名</button>
+</form>
+<view wx:if='{{updata}}' catchtap='stopPop' class="mask"></view>

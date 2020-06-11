@@ -1,0 +1,11 @@
+<button open-type="contact">进入客服会话</button>
+
+<button bindtap="goPageA">创建活动</button>
+
+<button bindtap="gobm">报名</button>
+<button bindtap="gocheck">审核</button>
+
+<button bindtap="goactivity">活动详情</button>
+<button bindtap="goshouquan">登录授权</button>
+<button bindtap="golist">活动列表</button>
+<button bindtap="gocenter">我的</button>

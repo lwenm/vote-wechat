@@ -1,0 +1,131 @@
+<view class="back-step">
+  <view class="back-cell">
+    <image class="image-step" src="../../../resource/icon/publish/1_pressed.png"></image>
+    <text class="text-titleA">活动内容</text>
+  </view>
+  <view class="lineC"></view>
+  <view class="back-cell">
+    <image class="image-step" src="../../../resource/icon/publish/2_pressed.png"></image>
+    <text class="text-titleA">活动选项</text>
+  </view>
+  <view class="lineD"></view>
+  <view class="back-cell">
+    <image class="image-step" src="../../../resource/icon/publish/3_normal.png"></image>
+    <text class="text-titleB">高级选项</text>
+  </view>
+  <view class="lineD"></view>
+  <view class="back-cell">
+    <image class="image-step" src="../../../resource/icon/publish/4_normal.png"></image>
+    <text class="text-titleB">活动奖励</text>
+  </view>
+</view>
+<view class="lineE"></view>
+<view class="containerView">
+  <view class="back-itemCell">
+    <image class="image-cell" src="../../../resource/icon/wenhao.png"></image>
+    <text class="static-cell">是否开放报名</text>
+    <switch bindchange="bindbmOptionChange" checked="{{sign_enabled}}" class="switch-cell" color="rgb(247, 83, 96)"></switch>
+  </view>
+  <view class="lineA"></view>
+  <block wx:if="{{sign_enabled}}">
+    <view class="back-itemCell">
+      <image class="image-cell" src="../../../resource/icon/publish/time.png"></image>
+      <text class="static-cell">报名开始时间</text>
+       <picker class="zbfname-right-item" mode="date" bindchange="bindDateChange" data-datetype='bmStart'>
+        <view>{{sign_start_date}}</view>
+      </picker>
+      <picker class="zbfname-right-item-right" mode="time" start="00:00" end="23:59" bindchange="bindTimeChange" data-datetype='bmStart'>
+        <view>{{sign_start_time}}</view>
+      </picker>
+    </view>
+    <view class="line"></view>
+    <view class="back-itemCell">
+      <image class="image-cell" src="../../../resource/icon/publish/time.png"></image>
+      <text class="static-cell">报名结束时间</text>
+      <picker class="zbfname-right-item" mode="date" bindchange="bindDateChange" data-datetype='bmEnd'>
+        <view>{{sign_stop_date}}</view>
+      </picker>
+      <picker class="zbfname-right-item-right" mode="time" start="00:00" end="23:59" bindchange="bindTimeChange" data-datetype='bmEnd'>
+        <view>{{sign_stop_time}}</view>
+      </picker>
+    </view>
+    <view class="line"></view>
+    <view class="back-itemCell">
+      <image class="image-cell" src="../../../resource/icon/publish/phone.png"></image>
+      <text class="static-cell">报名者手机号是否必填</text>
+      <switch bindchange="bindbmzPhoneChange" checked="{{sign_phone_need}}" class="switch-cell" color="rgb(247, 83, 96)"></switch>
+    </view>
+    <view class="line"></view>
+    <view class="back-itemCell">
+      <image class="image-cell" src="../../../resource/icon/publish/wechat.png"></image>
+      <text class="static-cell">报名者微信号是否必填</text>
+      <switch bindchange="bindbmzWeChatChange" checked="{{sign_wechat_need}}" class="switch-cell" color="rgb(247, 83, 96)"></switch>
+    </view>
+    <view class="lineA"></view>
+  </block>
+  <view class="back-itemCell">
+    <image class="image-cell" src="../../../resource/icon/publish/zbf.png"></image>
+    <text class="static-cell">主办方信息</text>
+    <switch bindchange="bindzbfMsgChange" checked="{{zbfMsgOption}}" class="switch-cell" color="rgb(247, 83, 96)"></switch>
+  </view>
+  <view wx:if="{{zbfMsgOption}}" class="lineA"></view>
+  <view wx:if="{{zbfMsgOption}}" class="back-allBonus">
+    <view class="back-item">
+      <text class="static-bonusOn">主办方名称</text>
+      <input bindinput="zbfNameInput" class="input-bonus" maxlength="-1" placeholder="请输入主办方名称" value="{{sponsor_name}}"></input>
+    </view>
+    <view class="line"></view>
+    <view class="back-item">
+      <text class="static-bonusOn">主办方电话</text>
+      <input bindinput="zbfPhoneInput" type='number' class="input-bonus" maxlength="-1" placeholder="请输入主办方电话" value="{{sponsor_phone}}"></input>
+    </view>
+    <!-- <view class="line"></view>
+    <view class="back-item">
+      <text class="static-bonusOn">主办方二维码</text>
+      <view bindtap="bindzbfCode" class="back-showImg" data-index="{{1}}">
+      <image class="image-AddImg" src="{{sponsor_wechat.length>0?attachurl+sponsor_wechat[0]:'../../../resource/icon/publish/addImg.png'}}"></image>
+      </view>
+    </view> -->
+  </view>
+  <view class="lineA"></view>
+  <block wx:if="{{multiOption==1}}">
+    <view class="back-itemCell">
+      <image class="image-cell" src="/resources/images/issueprob/min.png"></image>
+      <text class="static-cell">最少选择</text>
+      <input bindblur="bindMinLengthBlur" bindinput="bindMinLengthInput" class="input-cell" maxlength="2" placeholder="不限" type="number" value="{{minOptionLength}}"></input>
+    </view>
+    <view class="lineA"></view>
+    <view class="back-itemCell">
+      <image class="image-cell" src="/resources/images/issueprob/max.png"></image>
+      <text class="static-cell">最多选择</text>
+      <input bindblur="bindMaxLengthBlur" bindinput="bindMaxLengthInput" class="input-cell" maxlength="2" placeholder="不限" type="number" value="{{maxOptionLength}}"></input>
+    </view>
+    <view class="lineA"></view>
+  </block>
+  <view class="back-itemCell">
+      <image class="image-cell" src="../../../resource/icon/publish/time.png"></image>
+      <text class="static-cell">投票开始时间</text>
+       <picker class="zbfname-right-item" mode="date" bindchange="bindDateChange" data-datetype='tpStart'>
+        <view>{{vote_start_date}}</view>
+      </picker>
+      <picker class="zbfname-right-item-right" mode="time" start="00:00" end="23:59" bindchange="bindTimeChange" data-datetype='tpStart'>
+        <view>{{vote_start_time}}</view>
+      </picker>
+    </view>
+    <view class="lineA"></view>
+    <view class="back-itemCell">
+      <image class="image-cell" src="../../../resource/icon/publish/time.png"></image>
+      <text class="static-cell">投票结束时间</text>
+       <picker class="zbfname-right-item" mode="date" bindchange="bindDateChange" data-datetype='tpEnd'>
+        <view>{{vote_stop_date}}</view>
+      </picker>
+      <picker class="zbfname-right-item-right" mode="time" start="00:00" end="23:59" bindchange="bindTimeChange" data-datetype='tpEnd'>
+        <view>{{vote_stop_time}}</view>
+      </picker>
+    </view>
+    <view class="lineA"></view>
+</view>
+<view class="back-bottom" style="padding-bottom:{{isIPhoneX?'20px':'5px'}}">
+  <view bindtap="bindLastTap" class="view-submitA" hoverClass="view-submitA-hilight">上一步</view>
+  <view bindtap="nextPage" class="view-submitB" data-type="preview" hoverClass="view-submitB-hilight">下一步</view>
+</view>

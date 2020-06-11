@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "tech_vote/pages/publishlist/successA/success",
+    "tech_vote/pages/list/list",
+    "tech_vote/pages/center/center",
+    "tech_vote/pages/home/home",
+    "tech_vote/pages/notice/notice",
+    "tech_vote/pages/index/index",
+    "tech_vote/pages/publishlist/publishA/publishA",
+    "tech_vote/pages/publishlist/publishB/publishB",
+    "tech_vote/pages/publishlist/publishC/publishC",
+    "tech_vote/pages/publishlist/publishD/publishD",
+    "tech_vote/pages/enter/enter",
+    "tech_vote/pages/check/check",
+    "tech_vote/pages/check/detail/detail",
+    "tech_vote/pages/votedetail/votedetail",
+    "tech_vote/pages/login/login",
+    "tech_vote/pages/center/votelist/votelist",
+    "tech_vote/pages/poster/poster",
+    "tech_vote/pages/center/question/question",
+    "tech_vote/pages/center/connect/connect",
+    "tech_vote/pages/webview/webview",
+    "tech_vote/pages/publishlist/imagecut/imagecut"
+  ],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarBackgroundColor": "#F75360",
+    "backgroundColor": "#f0f0f0"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": " "
+    }
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "tech_vote/pages/list/list"
+      },
+      {
+        "pagePath": "tech_vote/pages/center/center"
+      }
+    ]
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wxcaa0187600b80d4c",
+    "wx3eec7c6dee2652a2",
+    "wx107fc2a866332ae0"
+  ],
+  "sitemapLocation": "sitemap.json"
+}

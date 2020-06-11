@@ -1,0 +1,50 @@
+<template name="adcell">
+  <view wx:if="{{isAdExist}}" class='ad-area'>
+    <block wx:if="{{zdy_type==1}}">
+      <image class='ad-close' bindtap='changeAd' mode='aspectFit' src='../../resource/images/del.png'></image>
+      <navigator target="miniProgram" app-id="{{key}}" path="{{lj}}" version="develop" open-type="navigate" hover-class="none">
+        <image class='ad-img' src="{{img}}" mode='widthFix'></image>
+      </navigator>
+    </block>
+    <block wx:if="{{adtype==2}}">
+      <image class='ad-close' bindtap='changeAd' mode='aspectFit' src='../../resource/images/del.png'></image>
+      <navigator url="../webview/webview?datasrc={{key}}" open-type="navigate" hover-class="none">
+        <image class='ad-img' src="{{img}}" mode='widthFix'></image>
+      </navigator>
+    </block>
+    <block wx:if="{{adtype==3}}">
+      <image class='ad-close' bindtap='changeAd' mode='aspectFit' src='../../resource/images/del.png'></image>
+      <image class='ad-img' data-phonenum="{{key}}" bindtap='makePhoneCall' src="{{img}}" mode='widthFix'></image>
+    </block>
+  </view>
+</template>
+<!--上拉加载 -->
+<template name="loadingCell">
+  <view class='loadingTost'>
+    <view class="spinner">
+      <view class="double-bounce1"></view>
+      <view class="double-bounce2"></view>
+    </view>
+  </view>
+</template>
+<template name="loadMore_loading">
+  <view class="weui-loadmore">
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore__tips">正在加载</view>
+  </view>
+</template>
+<template name="loadmore_tips">
+  <view class="weui-loadmore weui-loadmore_line">
+    <view class="weui-loadmore__tips weui-loadmore__tips_in-line">上拉加载更多</view>
+  </view>
+</template>
+<template name="loadMore_nodata">
+  <view class="weui-loadmore weui-loadmore_line">
+    <view class="weui-loadmore__tips weui-loadmore__tips_in-line">已无更多数据</view>
+  </view>
+</template>
+<template name="loadMore_nodataT">
+  <view class="weui-loadmore">
+    <view class="weui-loadmore__tips">已无更多数据</view>
+  </view>
+</template>

@@ -1,0 +1,76 @@
+<view class="container">
+  <view class='timeBox'>
+    <view class='timetitle'>
+      <image class="timepic" src='../../resource/icon/publish/theme.png'></image>
+      <view>活动主题</view>
+    </view>
+    <view class="activityTime">
+      <view>{{noticeData.title}}</view>
+    </view>
+  </view>
+  <view wx:if="{{self==1}}" class='timeBox' bindlongtap='bindCopyTap'>
+    <view class='timetitle'>
+      <image class="timepicT" mode='widthFix' src='../../resource/icon/link.png'></image>
+      <view>活动链接(仅发起者可见,长按可复制)</view>
+    </view>
+    <view class="activityTime">
+      <view>tech_vote/pages/index/index?id={{noticeData.id}}</view>
+    </view>
+  </view>
+  <view wx:if="{{noticeData.sponsor_enabled==1}}" class='timeBox'>
+    <view class='timetitle'>
+      <image class="timepic" src='../../resource/icon/publish/zbf.png'></image>
+      <view>活动主办方</view>
+    </view>
+    <view class="activityTime">
+      <view>主办方名称：{{noticeData.sponsor_name}}</view>
+      <view>主办方电话：{{noticeData.sponsor_phone}}</view>
+    </view>
+  </view>
+
+  <view class='timeBox'>
+    <view class='timetitle'>
+      <image class="timepic" src='../../resource/icon/publish/time.png'></image>
+      <view>活动时间</view>
+    </view>
+    <view class="activityTime">
+      <view wx:if="{{noticeData.sign_enabled==1}}">报名时间：{{noticeData.sign_start_time}} ~ {{noticeData.sign_stop_time}}</view>
+      <view>投票时间：{{noticeData.vote_start_time}} ~ {{noticeData.vote_stop_time}}</view>
+    </view>
+  </view>
+  <view class='voteRule'>
+    <view class='timetitle'>
+      <image class="timepic" src='../../resource/icon/publish/anonymity.png'></image>
+      <view>投票规则</view>
+    </view>
+    <view class='activityTime'>
+      <view>每位用户每天可投{{noticeData.tp_everyday_num}}票</view>
+      <view wx:if="{{noticeData.tp_repeat_enabled==1}}">可重复投票</view>
+      <view wx:if="{{noticeData.tp_repeat_enabled==0}}">不可重复投票</view>
+    </view>
+  </view>
+  <view class='voteRule'>
+    <view class='timetitle'>
+      <image class="timepic" src='../../resource/icon/reward.png'></image>
+      <view>活动奖励</view>
+    </view>
+    <view class='activityTime'>
+      <view style='white-space:pre-wrap'>{{noticeData.reward}}</view>
+      <block wx:for="{{noticeData.reward_img}}" wx:key="{{index}}">
+        <image class="noticeImage" mode='widthFix' src="{{item}}"></image>
+      </block>
+    </view>
+  </view>
+  <view class='voteRule'>
+    <view class='timetitle'>
+      <image class="timepic" src='../../resource/icon/publish/description.png'></image>
+      <view>活动介绍</view>
+    </view>
+    <view class='activityTime'>
+      <view style='white-space:pre-wrap'>{{noticeData.intro}}</view>
+      <block wx:for="{{noticeData.intro_img}}" wx:key="{{index}}">
+        <image class="noticeImage" mode='widthFix' src="{{item}}"></image>
+      </block>
+    </view>
+  </view>
+</view>

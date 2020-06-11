@@ -1,0 +1,192 @@
+
+.containerview {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 200rpx;
+    font-family: 'FZPinShangHeiS-R-GB';
+}
+
+.headview {
+    display: inherit;
+    flex-direction: inherit;
+    color: white;
+    align-items: center;
+    width: 100%;
+    height: 377rpx;
+}
+
+.title_bg {
+    width: 100%;
+    height: 377rpx;
+    position: absolute;
+    z-index: -99;
+}
+
+.headImage {
+    display: inherit;
+    width: 102rpx;
+    height: 102rpx;
+    margin-top: 23rpx;
+    border-radius: 51rpx;
+    border: 1px solid #f0f0f0;
+}
+
+.userName {
+    margin-top: 24rpx;
+    font-size: 30rpx;
+}
+
+.votecountback {
+    width: 100%;
+    display: inherit;
+    flex-direction: row;
+    margin-top: 47rpx;
+    align-items: center;
+}
+
+.countContainer {
+    display: flex;
+    flex-direction: column;
+    width: 32.8%;
+    align-items: center;
+}
+
+.count-text {
+    font-size: 28rpx;
+}
+
+.count-des {
+    font-size: 22rpx;
+    margin-top: 10rpx;
+}
+
+.lineleft {
+    background: white;
+    width: 6rpx;
+    height: 15rpx;
+    border-radius: 5rpx;
+}
+
+.lineright {
+    background: white;
+    width: 6rpx;
+    height: 15rpx;
+    border-radius: 5rpx;
+}
+
+.listView {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15rpx;
+    padding-left: 48rpx;
+    padding-right: 48rpx;
+}
+
+.item-back {
+    display: inherit;
+    width: 100%;
+    line-height: 120rpx;
+}
+
+.lineB {
+    width: 702rpx;
+    height: 1px;
+    background: rgba(0,0,0,0.05);
+}
+
+.lineC {
+    width: 750rpx;
+    height: 6rpx;
+    margin-left: -48rpx;
+    background: rgba(0,0,0,0.05);
+}
+
+.item-image {
+    width: 28rpx;
+    height: 31rpx;
+    margin-top: 44rpx;
+}
+
+.item-detail {
+    width: 11rpx;
+    height: 21rpx;
+    margin-top: 50rpx;
+    margin-left: 31rpx;
+}
+
+.item-title {
+    height: 100%;
+    margin-left: 39rpx;
+    font-size: 28rpx;
+}
+
+.amount {
+    font-size: 28rpx;
+    height: 100%;
+    text-align: right;
+    width: 170rpx;
+    margin-left: 178rpx;
+}
+
+.item-titleA {
+    width: 200rpx;
+}
+button::after{
+  border:none;
+}
+.item-titleB {
+    width: 548rpx;
+}
+
+.button-contact {
+    width: 90%;
+    height: 120rpx;
+    background: white;
+    opacity: 0;
+    position: absolute;
+}
+.adBox {
+  margin-top: 40rpx;
+  filter: drop-shadow();
+}
+.adswiper{
+height: 240rpx;
+}
+.adBox image {
+  width: 670rpx;
+  height: 240rpx;
+  display: block;
+  margin-left: 40rpx;
+}
+.we7-bottom .item-imgt {
+width:80rpx;
+height: 38rpx;
+display:inline-block;
+}
+button{
+  padding: 0;
+  background: #fff;
+  border-radius:0px;
+  
+}
+button{
+position:relative;
+display:block;
+margin-left:auto;
+margin-right:auto;
+padding-left:0px;
+padding-right:0px;
+box-sizing:border-box;
+font-size:inherit;
+text-align:inherit;
+text-decoration:none;
+line-height:inherit;
+border-radius:0px;
+-webkit-tap-highlight-color:transparent;
+overflow:hidden;
+color:#000000;
+background-color:#fff;
+}
+button::after{
+  border:none;
+}

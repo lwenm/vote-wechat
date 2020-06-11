@@ -1,0 +1,236 @@
+<block wx:if="{{isload}}">
+  <view class='tet'>
+    <view class='container'>
+      <view class='title-csz'>
+        <view style='color:#f75360'>{{obj.number}}号{{defined.func_vote_detail_playername}} {{obj.name}}</view>
+        <text class='cjtitle' style='color:#737373'>正在参加 </text>
+        <text class='cjtitle' style='color:#737373'>{{obj.a_title}}</text>
+      </view>
+      <view class='tools'>
+        <view class='toos-item'>
+          <view class='num extra-elips' style='color:#f75360'>{{obj.number}}</view>
+          <view class='name' style='color:#737373'>编号</view>
+        </view>
+        <view class='toos-item'>
+          <view class='num' style='color:#f75360'>{{obj.vote_num}}</view>
+          <view class='name' style='color:#737373'>票数</view>
+        </view>
+        <view class='toos-item'>
+          <view class='num' style='color:#f75360'>{{obj.list}}</view>
+          <view class='name' style='color:#737373'>排名</view>
+        </view>
+      </view>
+      <swiper class='intro-image' bindchange="bindImageTap" circular="{{true}}" indicator-dots="{{true}}" autoplay="{{true}}" interval="3000" style="height:{{imgheights[current]}}rpx;">
+        <block wx:for="{{obj.thumb}}" wx:key="{{index}}">
+          <swiper-item>
+            <image src="{{item}}" data-id='{{index}}' style="height:{{imgheights[current]}}rpx;" bindload="imageLoad"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <view class='giftTitlelist' style='color:#f75360'>{{defined.func_vote_playerintroduce}}</view>
+    <view class='intro' style='color:#737373;white-space:pre-wrap'>{{obj.intro}}</view>
+    <view wx:if="{{gift_switch==1 && enabled.func_pianshen==0 && hasGiftBtn}}" class='giftTitlelist' style='color:#f75360'>{{defined.func_vote_giftlist}}</view>
+    <view wx:if="{{giftlogs.length>0 && gift_switch==1 && enabled.func_pianshen==0 && fhasGiftBtn}}" class='person-tools' style='color:#737373'>
+      <view class='personname'>粉丝</view>
+      <view class='personnum'>礼物</view>
+      <view class='personorder'>时间</view>
+    </view>
+    <view wx:if="{{giftlogs.length<1 && gift_switch==1 && enabled.func_pianshen==0 && hasGiftBtn}}" class='nogift' style='color:#737373'>TA还没有获得过礼物哦~</view>
+    <scroll-view wx:if="{{giftlogs.length>0 && gift_switch==1 && enabled.func_pianshen==0 && hasGiftBtn}}" scroll-y="{{true}}" class="giftlist">
+      <block wx:for="{{giftlogs}}" wx:key="{{index}}">
+        <view class='hotitem'>
+          <image class='hotitem-headimg' src="{{item.headimgurl}}"></image>
+          <view class='hotitem-nickname extra-elips' style='color:#737373'>{{item.nickname}}</view>
+          <view class='hotitem-votenum' style='color:#737373'>{{item.name}}</view>
+          <view class='hotitemorder' style='color:#737373'>{{item.c_time}}</view>
+        </view>
+      </block>
+    </scroll-view>
+    <view class='hottitle' style='color:#f75360'>{{defined.func_vote_hotplayer}}</view>
+    <view class='person-tools' style='color:#737373'>
+      <view class='personname'>选手</view>
+      <view class='personnum'>票数</view>
+      <view class='personorder'>名次</view>
+    </view>
+    <scroll-view scroll-y="{{true}}" class='hotlist'>
+      <block wx:for="{{hotlist}}" wx:key="{{index}}">
+        <view class='hotitem' bindtap='bindOtherTap' data-id='{{item.id}}'>
+          <image class='hotitem-headimg' src="{{item.thumb[0]}}"></image>
+          <view class='hotitem-nickname extra-elips' style='color:#737373'>{{item.name}}</view>
+          <view class='hotitem-votenum' style='color:#737373'>{{item.vote_num}}</view>
+          <view class='hotitemorder' style='color:#737373'>
+            <text decode="{{true}}">{{item.list}}&nbsp;&nbsp;</text>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+    <view wx:if="{{adlist!=null}}" class='line'></view>
+    <block wx:if="{{adlist.type==1}}">
+      <view class="ad_list">
+        <ad style="height: 80px;" unit-id="{{adlist.llz_id}}"></ad>
+      </view>
+    </block>
+    <block wx:if="{{adlist.type==2}}">
+      <view class="adBox">
+        <swiper wx:if="{{adlist.data!=null}}" indicator-dots="{{false}}" autoplay="{{true}}" interval="3000" circular="{{true}}" class="adswiper">
+          <block wx:for="{{adlist.data}}" wx:key="{{index}}">
+            <block wx:if="{{item.info==1}}">
+              <swiper-item>
+                <navigator target="miniProgram" path="{{item.path}}" app-id="{{item.id}}" version="release" open-type="navigate" hover-class="active">
+                  <image src="{{item.thumb}}"></image>
+                </navigator>
+              </swiper-item>
+            </block>
+            <block wx:if="{{item.info==2}}">
+              <swiper-item data-url="{{item.path}}" bindtap="bindAdTap">
+                <!-- <navigator url="../webview/webview?datasrc={{ item.path}}" open-type="navigate" hover-class="active"> -->
+                  <image src="{{item.thumb}}"></image>
+                <!-- </navigator> -->
+              </swiper-item>
+            </block>
+            <block wx:if="{{item.info==3}}">
+              <swiper-item data-phonenum="{{item.path}}" bindtap="makePhoneCall">
+                <image src="{{item.thumb}}"></image>
+              </swiper-item>
+            </block>
+            <block wx:if="{{item.info==4}}">
+              <swiper-item>
+                <button open-type='contact'>
+                  <image src="{{item.thumb}}"></image>
+                </button>
+              </swiper-item>
+            </block>
+          </block>
+        </swiper>
+      </view>
+    </block>
+  </view>
+  <view class='vitetips' catchtouchmove='bindStopPop' wx:if="{{votesuccess.activity_ad_enabled!=0 && voteSuccess}}">
+    <view class='tipsbox'>
+      <view class='tipstitle'>投票成功</view>
+      <view class='tipsbody'>
+        <block wx:if="{{votesuccess.activity_ad_enabled==1}}">
+          <button bindtap='bindminiTap' data-appid='{{votesuccess.data.votesuccess_data_mini_appid}}' data-path='{{votesuccess.data.votesuccess_data_mini_path}}'>
+            <image class='tipsimg' src='{{votesuccess.data.votesuccess_data_mini_thumb}}'></image>
+          </button>
+        </block>
+        <block wx:if="{{votesuccess.activity_ad_enabled==2}}">
+          <button data-link='{{votesuccess.data.votesuccess_data_link_link}}' bindtap='bindWebviewTap'>
+            <image class='tipsimg' src='{{votesuccess.data.votesuccess_data_link_thumb}}'></image>
+          </button>
+        </block>
+        <block wx:if="{{votesuccess.activity_ad_enabled==3}}">
+          <button bindtap='makePhoneCall' data-phonenum='{{votesuccess.data.votesuccess_data_phone_num}}'>
+            <image class='tipsimg' src='{{votesuccess.data.votesuccess_data_phone_thumb}}'></image>
+          </button>
+        </block>
+        <block wx:if="{{votesuccess.activity_ad_enabled==4}}">
+          <view bindtap="hidepop">
+            <button open-type='contact'>
+              <image class='tipsimg' src='{{votesuccess.data.votesuccess_data_kefu_thumb}}'></image>
+            </button>
+          </view>
+        </block>
+      </view>
+      <view class='tipsfooter'>
+        <view class='footer-cancel' bindtap='bindHideVotetipsTap'>算了吧</view>
+        <block wx:if="{{votesuccess.activity_ad_enabled==1}}">
+          <button bindtap='bindminiTap' data-appid='{{votesuccess.data.votesuccess_data_mini_appid}}' data-path='{{votesuccess.data.votesuccess_data_mini_path}}' class='footer-yes'>去看看</button>
+        </block>
+        <block wx:if="{{votesuccess.activity_ad_enabled==2}}">
+          <button data-link='{{votesuccess.data.votesuccess_data_link_link}}' bindtap='bindWebviewTap' class='footer-yes'>去看看</button>
+        </block>
+        <block wx:if="{{votesuccess.activity_ad_enabled==3}}">
+          <button bindtap='makePhoneCall' data-phonenum='{{votesuccess.data.votesuccess_data_phone_num}}' class='footer-yes'>去看看</button>
+        </block>
+        <block wx:if="{{votesuccess.activity_ad_enabled==4}}">
+        <view bindtap="hidepop" class='footer-yes'>
+          <button open-type='contact' class='footer-yes'>去看看</button>
+          </view>
+        </block>
+      </view>
+
+    </view>
+  </view>
+  <block wx:if="{{enabled.func_pianshen==0 && gift_switch==1 && hasGiftBtn}}">
+    <view catchtap='bindgoTap' class='edit'>
+      <view class='iconfont icon-paihang editImage'></view>
+    </view>
+  </block>
+  <view class='bottomBox'>
+    <block wx:if="{{enabled.func_pianshen==0 && enabled.share_enabled_detail==1}}">
+      <view bindtap='bindShareTap' class='share'>
+        <image class="shareImage" src='../../resource/icon/share.png'></image>
+      </view>
+    </block>
+    <block wx:if="{{enabled.func_pianshen==1 || enabled.share_enabled_detail==0}}">
+      <button open-type='share' class='shareT'>
+        <image class="shareImage" src='../../resource/icon/share.png'></image>
+      </button>
+    </block>
+    <view bindtap="bindVoteTap" class="voteBtn">
+      给TA投票
+    </view><block wx:if="{{enabled.func_pianshen==0 && gift_switch==1 && hasGiftBtn}}">
+      <view bindtap='bindGiftTap' class='gift' style="margin-left:{{moreH?'119rpx':'115rpx'}};">
+        <image class="shareImage" src='../../resource/icon/gift.png'></image>
+      </view>
+    </block><block wx:if="{{enabled.func_pianshen==1 || gift_switch==0 || !hasGiftBtn}}">
+      <view bindtap='bindgoTap' class='gift' style="margin-left:{{moreH?'119rpx':'115rpx'}};">
+        <image class="shareImage" src='../../resource/icon/paihang.png'></image>
+      </view>
+    </block>
+  </view>
+  <view wx:if="{{enabled.func_pianshen==0 && enabled.fun_danmu==1}}" class='danmutipbox'>
+    <view class='danmutip' bindtap="bindDanMuTap">+添加弹幕</view>
+  </view>
+  <view wx:if="{{enabled.func_pianshen==0 && enabled.fun_danmu==1}}" class='danmulist'>
+    <block wx:for="{{danmulist}}" wx:key="{{index}}">
+      <view class='danmuitemConten' animation="{{intervalindex==index?animationY:''}}">{{item.nickname+'：'+item.content}}</view>
+    </block>
+  </view>
+  <view bindtap='bindDanMuTap' wx:if="{{isDanMuShow}}" class="giftBoxMask">
+    <view class="shareBox">
+      <view class='gifttitleT'>发送弹幕，可以让更多人看到哦~</view>
+      <view catchtap='donothing' class='danmubox'>
+        <input class="danmuinput" bindinput='bindDanMuInput' cursor-spacing='100' placeholder="请输入弹幕内容"></input>
+        <view class='postdm' catchtap='bindPostDanMuTap'>发送</view>
+      </view>
+    </view>
+  </view>
+  <view bindtap='bindShareTap' wx:if="{{isShareShow}}" class='giftBoxMask'>
+    <view catchtap='bindcat' class='shareBox'>
+      <view class='gifttitle'>快分享出去为TA加油吧~</view>
+      <view class='sharetools'>
+        <button hover-class="none" open-type='share' class='friends'>
+          <view class='friends'>
+            <view class='friendsimgbox'>
+              <image class='friendsimg' src='../../resource/icon/wechat.png '></image>
+            </view>
+            <view class='friendtitle'>好友/群</view>
+          </view>
+        </button>
+        <view catchtap='bindPosterTap' class='friends'>
+          <view class='friendsimgbox'>
+            <image class='friendsimg' src='../../resource/icon/pyq.png '></image>
+          </view>
+          <view class='friendtitle'>朋友圈海报</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view bindtap='bindGiftTap' wx:if="{{isGiftShow}}" class='giftBoxMask '>
+    <view class='giftBox'>
+      <view class='gifttitle'>{{gifts.length>0?'送TA礼物会增加票数哦~':'暂时没有礼物可送哦~'}}</view>
+      <block wx:for="{{gifts}}" wx:key="{{index}}">
+        <view class='gift-item' data-id='{{item.id}}' data-num='{{item.vote_num}}' catchtap='bindPayTap'>
+          <image class='gift-item-image' src='{{item.thumb}}'></image>
+          <view class='addnum'>+{{item.vote_num}}票</view>
+          <view class='giftname extra-elips'>{{item.name}}</view>
+          <view class='giftmoney'>￥{{item.fee}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+</block>

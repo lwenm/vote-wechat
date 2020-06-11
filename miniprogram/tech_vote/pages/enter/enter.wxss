@@ -1,0 +1,233 @@
+page{
+  background: #f0f0f0;
+  padding-bottom: 40rpx;
+}
+
+.lineA {
+    height: 1px;
+    background: rgba(0,0,0,0.05);
+    margin-left: -36rpx;
+    width: 750rpx;
+    margin-top: 20rpx;
+}
+
+.containerView {
+    display: flex;
+    flex-direction: column;
+    font-size: 28rpx;
+    padding-left: 36rpx;
+    padding-right: 36rpx;
+    /* padding-bottom: 150rpx; */
+    background: #fff;
+}
+.containerViewT{
+    display: flex;
+    flex-direction: column;
+    font-size: 28rpx;
+    padding-left: 36rpx;
+    padding-right: 36rpx;
+    /* padding-bottom: 150rpx; */
+    background: #fff;
+    margin-top: 20rpx;
+}
+
+.back-itemCell {
+    display: inherit;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 122rpx;
+}
+
+.static-bonusOn {
+    margin-right: auto;
+}
+
+.back-showImg {
+  margin-right: 10rpx;
+    
+}
+.image-AddImg {
+    width: 80rpx;
+    height: 80rpx;
+}
+
+.back-allBonus {
+    display: inherit;
+    flex-direction: inherit;
+}
+
+.back-allBonus-disable {
+    display: inherit;
+    flex-direction: inherit;
+    color: rgba(0,0,0,0.5);
+}
+
+.back-item {
+    display: inherit;
+    flex-direction: row;
+    align-items: center;
+    height: 122rpx;
+}
+
+.static-bonusOn {
+    margin-right: auto;
+}
+
+.switch-giftOn {
+    color: rgb(247,83,96);
+}
+
+.back-bonus {
+    display: inherit;
+    flex-direction: row;
+    height: 106rpx;
+    line-height: 106rpx;
+}
+
+.input-bonus {
+    height: 106rpx;
+    text-align: right;
+    margin-right: 18rpx;
+    width: 400rpx;
+}
+
+
+
+.static-bonus {
+    margin-right: auto;
+}
+
+.back-allBonus {
+    display: inherit;
+    flex-direction: inherit;
+}
+image-delete {
+    width: 25rpx;
+    height: 25rpx;
+}
+
+
+.image-add {
+    width: 20rpx;
+    height: 20rpx;
+}
+
+.text-add {
+    margin-left: 16rpx;
+    color: rgb(247,83,96);
+}
+
+.text-add-disable {
+    margin-left: 16rpx;
+    color: rgba(0,0,0,0.5);
+}
+
+.submit {
+    font-weight: bold;
+    font-size: 30rpx;
+    text-align: center;
+    height: 80rpx;
+    width: 678rpx;
+    border-radius: 48rpx;
+    line-height: 80rpx;
+    margin-top: 40rpx;
+    margin-left: 36rpx;
+    color: white;
+    background: linear-gradient(to right,rgb(245,43,85),rgb(255,218,39));
+}
+
+.back-desCount {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    margin-top: 40rpx;
+    margin-bottom: 42rpx;
+    height: 50rpx;
+}
+
+.back-addImg {
+    display: flex;
+    flex-direction: row;
+    margin-right: auto;
+    align-items: center;
+    height: 100%;
+}
+
+.image-addImg {
+    width: 26rpx;
+    height: 28rpx;
+    margin-right: 22rpx;
+}
+
+.text-addImg {
+    font-size: 24rpx;
+    line-height: 50rpx;
+}
+
+.back-rich {
+    display: flex;
+    flex-direction: column;
+}
+
+.textarea-rich {
+    width: 100%;
+    line-height: 54rpx;
+    background: white;
+    font-size: 28rpx;
+    height: 54rpx;
+}
+
+.back-imgDelete {
+    display: flex;
+    flex-direction: column;
+    width: 80rpx;
+    height: 80rpx;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+    margin-left: 630rpx;
+    margin-top: -20rpx;
+}
+
+.image-imgDelete {
+    width: 36rpx;
+    height: 36rpx;
+}
+
+.image-richImg {
+    margin-top: -40rpx;
+    width: 100%;
+    /* z-index: 1; */
+}
+.back-themeA {
+    display: inherit;
+    flex-direction: row;
+    height: 120rpx;
+    align-items: center;
+  }
+
+.image-theme {
+    width: 26rpx;
+    height: 28rpx;
+}
+
+.static-theme {
+    margin-left: 21rpx;
+}
+
+
+.input-theme {
+    margin-right: auto;
+    width: 580rpx;
+}
+
+.mask{
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5); 
+}

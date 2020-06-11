@@ -1,0 +1,21 @@
+<view class='containView'>
+  <view class='order'>编号：{{id}}</view>
+  <view class='title'><text>参赛名称：</text>{{name}}</view>
+  <view class='intro'>参赛介绍：{{intro}}</view>
+  <view wx:if="{{phone.length>0}}" class='needChoice'>
+    <view>联系电话：{{phone}}</view>
+  </view>
+  <view wx:if="{{phone.length>0}}" class='needChoice'>
+     <view wx:if='{{wechat.length>0}}' class='weChat'>微信号：{{wechat}}</view>
+  </view>
+  
+  <view class='intro-image'>
+  <block wx:for="{{thumb}}" wx:key="{{index}}">
+  <image mode='widthFix' src='{{item}}'></image>
+  </block>
+  </view>
+  <view>
+  <button bindtap='bindCheckTap' data-type='1' class="submit" >通过</button>
+  <button bindtap='bindCheckTap' data-type='2' class="submitT" >拒绝</button>
+  </view>
+</view>

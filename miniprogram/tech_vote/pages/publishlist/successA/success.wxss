@@ -53,5 +53,5 @@ page {
   border-radius: 50px;
   color: #ffffff;
   border: none;
-  background-color: #EB633A;
+  background-color: #F75360;
 }

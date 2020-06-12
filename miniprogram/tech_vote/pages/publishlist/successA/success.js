@@ -22,10 +22,6 @@ Page({
     wx.setNavigationBarTitle({
       title: '投票结束'
     })
-    wx.setNavigationBarColor({
-      frontColor: '#000000',
-      backgroundColor: '#ffffff'
-    });
   },
 
   /**

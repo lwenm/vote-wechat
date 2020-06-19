@@ -180,24 +180,32 @@ Page({
               that.setData({
                 obj: obj
               })
-              that.bindmessageTap(datalist.message);
+              that.navigateResultPage(that.data.obj.id, 1, datalist.message);
             }else{
               that.setData({
                 obj: obj,
                 voteSuccess: !that.data.voteSuccess
               })
             }
-            
           }else{
-            that.setData({
-              obj: obj,
-            })
-            that.bindmessageTap(datalist.message);
+            // that.setData({
+            //   obj: obj,
+            // })
+            // that.bindmessageTap(datalist.message);
+            that.navigateResultPage(that.data.obj.id, 1)
           }
-        } else {
-          that.bindmessageTap(datalist.message);
+        } else {         
+          that.navigateResultPage(that.data.obj.id, 0, datalist.message);
         }
       }
+    })
+  },
+  navigateResultPage: function(id, type, message = '') {
+    let that = this;
+    wx.navigateTo({
+      url: '../result/result?id='+id+'&type='+type+
+      '&message='+message+'&shareName='+that.data.obj.name+
+      '&shareUrl='+that.data.obj.thumb[0],
     })
   },
   bindDanMuTap:function(){
@@ -278,19 +286,22 @@ Page({
                 if (district == dqvalue[2]) {
                   that.bindPostTap()
                 } else {
-                  that.bindmessageTap('活动仅限' + dqvalue[0] + dqvalue[1] + dqvalue[2]+'参与！');
+                  that.navigateResultPage(that.data.obj.id, 0, '活动仅限' + dqvalue[0] + dqvalue[1] + dqvalue[2]+'参与！')
+                  // that.bindmessageTap('活动仅限' + dqvalue[0] + dqvalue[1] + dqvalue[2]+'参与！');
                 }
               } else {
                 that.bindPostTap()
               }
             } else {
-              that.bindmessageTap('活动仅限' + dqvalue[0] + dqvalue[1]+'参与！');
+              that.navigateResultPage(that.data.obj.id, 0, '活动仅限' + dqvalue[0] + dqvalue[1]+'参与！')
+              // that.bindmessageTap('活动仅限' + dqvalue[0] + dqvalue[1]+'参与！');
             }
           } else {
             that.bindPostTap()
           }
         } else {
-          that.bindmessageTap('活动仅限' + dqvalue[0]+'参与！');
+          that.navigateResultPage(that.data.obj.id, 0, '活动仅限' + dqvalue[0]+'参与！')
+          // that.bindmessageTap('活动仅限' + dqvalue[0]+'参与！');
         }
       } else {
         that.bindPostTap()
@@ -442,9 +453,9 @@ Page({
     })
   },
  onShow:function(){
-  if(this.data.canrefresh){
+  // if(this.data.canrefresh){
     this.init(this.id);
-  } 
+  // } 
  },
   init: function(id) {
     let that = this;
@@ -562,9 +573,10 @@ Page({
   },
   
   onLoad: function(options) {
-    let that=this;
+   let that=this;
     this.id = options.id?options.id:options.scene;
     this.init(this.id);
+    console.log(app.globalData)
     if (app.globalData!=null){
       app.util.setNBT(app.globalData.app_name);
     }
@@ -613,8 +625,9 @@ Page({
      })
     }
     console.log(interval);
+    console.log(this.data.obj.share_thumb[0])
     return {
-      title: that.data.obj.name,
+      title: that.data.obj.name+'正在参加投票活动，点进来帮他投一票吧',
       path:'tech_vote/pages/votedetail/votedetail?id='+this.id,
       imageUrl: this.data.obj.share_thumb[0]
     }

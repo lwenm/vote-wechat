@@ -92,39 +92,61 @@ font-size: 14px;
 .bottomBox {
   position: fixed;
   bottom: 5px;
+  display: flex;
   left: 0;
   right: 0;
   padding: 20rpx 30rpx;
   background: rgba(255, 255, 255, 0);
 }
 
-.shareImage {
-  width: 40rpx;
-  height: 40rpx;
-  margin-top: 20rpx;
-}
 .share {
   width: 80rpx;
   height: 80rpx;
   text-align: center;
   border-radius: 50%;
-  background: rgb(247, 83, 96) !important;
-  display: inline-block;
   vertical-align: middle;
+  background:#f75360;
+  color:#fff
+}
+.share view{
+  font-size: 10px;
+  line-height: 15px;
+}
+
+.shareImage {
+  font-size: 22px !important;
+  text-align: center;
+  margin-top: 4px;
+  line-height: 15px;
+}
+
+.img {
+  display: block;
+  font-size: 0;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 4px;
+  margin-bottom: 0px;
+  line-height: 0;
+  width: 16px;
+  height: 16px;
 }
 
 .shareT {
-  width: 80rpx;
+  width: 180rpx;
   height: 80rpx;
+  line-height: 80rpx;
+  color: #fff;
+  font-size: 16px;
   text-align: center;
-  border-radius: 50%;
+  border-radius: 100rpx;
   background: rgb(247, 83, 96) !important;
   display: inline-block;
   vertical-align: middle;
 }
 
 .voteBtn {
-  width: 300rpx;
+  flex: 1;
   height: 80rpx;
   text-align: center;
   display: inline-block;
@@ -134,7 +156,8 @@ font-size: 14px;
   font-size: 16px;
   line-height: 80rpx;
   border-radius: 40rpx;
-  margin-left: 115rpx;
+  margin-left: 100rpx;
+  margin-right: 100rpx;
 }
 
 .gift {

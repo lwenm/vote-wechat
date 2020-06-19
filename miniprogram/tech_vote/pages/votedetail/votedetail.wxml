@@ -159,27 +159,34 @@
     </view>
   </block>
   <view class='bottomBox'>
-    <block wx:if="{{enabled.func_pianshen==0 && enabled.share_enabled_detail==1}}">
-      <view bindtap='bindShareTap' class='share'>
-        <image class="shareImage" src='../../resource/icon/share.png'></image>
-      </view>
+    <block wx:if="{{enabled.func_pianshen==0 && gift_switch==1 && hasGiftBtn}}">
+      <button bindtap='bindGiftTap' hover-class='none' class='share'>
+        <image class="img" src="../../resource/icon/gift.png"></image>
+        <view>送礼</view>
+      </button>
     </block>
-    <block wx:if="{{enabled.func_pianshen==1 || enabled.share_enabled_detail==0}}">
-      <button open-type='share' class='shareT'>
-        <image class="shareImage" src='../../resource/icon/share.png'></image>
+    <block wx:if="{{enabled.func_pianshen==1 || gift_switch==0 || !hasGiftBtn}}">
+      <button bindtap='bindgoTap' hover-class='none' class='share'>
+        <image class="img" src="../../resource/icon/home.png"></image>
+        <view>首页</view>
       </button>
     </block>
     <view bindtap="bindVoteTap" class="voteBtn">
       给TA投票
-    </view><block wx:if="{{enabled.func_pianshen==0 && gift_switch==1 && hasGiftBtn}}">
-      <view bindtap='bindGiftTap' class='gift' style="margin-left:{{moreH?'119rpx':'115rpx'}};">
-        <image class="shareImage" src='../../resource/icon/gift.png'></image>
-      </view>
-    </block><block wx:if="{{enabled.func_pianshen==1 || gift_switch==0 || !hasGiftBtn}}">
-      <view bindtap='bindgoTap' class='gift' style="margin-left:{{moreH?'119rpx':'115rpx'}};">
-        <image class="shareImage" src='../../resource/icon/paihang.png'></image>
-      </view>
+    </view>
+    <!-- <block wx:if="{{enabled.func_pianshen==0 && enabled.share_enabled_detail==1}}"> -->
+    <block>
+      <button bindtap='bindShareTap' hover-class='none' class='share'>
+        <view class='iconfont icon-fenxiang shareImage'></view>
+        <view>拉票</view>
+      </button>
     </block>
+    <!-- <block wx:if="{{enabled.func_pianshen==1 || enabled.share_enabled_detail==0}}">
+      <button open-type='share' hover-class='none' class='share'>
+        <view class='iconfont icon-fenxiang shareImage'></view>
+        <view>拉票</view>
+      </button>
+    </block> -->
   </view>
   <view wx:if="{{enabled.func_pianshen==0 && enabled.fun_danmu==1}}" class='danmutipbox'>
     <view class='danmutip' bindtap="bindDanMuTap">+添加弹幕</view>

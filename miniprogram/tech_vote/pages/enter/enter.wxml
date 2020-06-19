@@ -2,10 +2,10 @@
   <view class="containerView">
     <view class="back-themeA">
       <image class="image-theme" src="../../resource/icon/publish/theme.png"></image>
-      <text class="static-theme">参赛名称</text>
+      <text class="static-theme">选手名称/作品名称</text>
     </view>
     <view class="back-rich">
-      <input bindinput="bindNameInput" class="textarea-rich" maxlength="-1" placeholder="请输入参赛名称" placeholderStyle="color: rgba(0,0,0,0.3)" value=""></input>
+      <input bindinput="bindNameInput" class="textarea-rich" maxlength="-1" placeholder="请输入选手名称或作品名称" placeholderStyle="color: rgba(0,0,0,0.3)" value=""></input>
     </view>
     <view class="lineA"></view>
     <view class="back-themeA">
@@ -54,7 +54,7 @@
     </block>
     <view class="back-allBonus">
       <view class="back-item">
-        <text class="static-bonusOn">自定义分享图片</text>
+        <text class="static-bonusOn">自定义分享图片(选填)</text>
         <view bindtap="chooseShareThumb" class="back-showImg">
           <image class="image-AddImg" src="{{share_thumb.length>0?attachurl+share_thumb[0]:'../../resource/icon/publish/addImg.png'}}"></image>
         </view>

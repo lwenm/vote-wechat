@@ -82,7 +82,7 @@ Page({
     let that = this;
     that.setData({
       isloading: true,
-    })
+    }) 
     app.util.request({
       'url': 'entry/wxapp/wxapp&r=activity.list.display',
       'cachetime': '0',

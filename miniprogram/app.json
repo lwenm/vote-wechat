@@ -1,9 +1,8 @@
 {
   "pages": [
-    "tech_vote/pages/publishlist/successA/success",
     "tech_vote/pages/list/list",
     "tech_vote/pages/center/center",
-    "tech_vote/pages/home/home",
+    "tech_vote/pages/home/home", 
     "tech_vote/pages/notice/notice",
     "tech_vote/pages/index/index",
     "tech_vote/pages/publishlist/publishA/publishA",
@@ -20,6 +19,7 @@
     "tech_vote/pages/center/question/question",
     "tech_vote/pages/center/connect/connect",
     "tech_vote/pages/webview/webview",
+    "tech_vote/pages/result/result",
     "tech_vote/pages/publishlist/imagecut/imagecut"
   ],
   "window": {

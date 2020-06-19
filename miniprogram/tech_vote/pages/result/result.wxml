@@ -1,0 +1,45 @@
+<!--miniprogram/tech_vote/pages/success/success.wxml-->
+<view>
+  <view class="suc-top">
+    <icon size="40" color="{{type === 1 ?'#58B27C':(type === 0 ? '#F56364': '')}}" type="{{type === 1 ?'success':(type === 0 ? 'warn': '')}}"></icon>
+    <view class="title">投票{{type === 1 ?'成功':( type === 0 ? '失败' : '')}}</view>
+    <view class="sub">
+      <text class="text fail" wx:if="{{type === 0}}">{{message}}</text>
+      <text class="text success" wx:if="{{type === 1}}" >今日您还可以继续投{{last_everyday_num}}票</text>
+    </view>
+  </view>
+  <view class="suc-middle">   
+    <ad unit-id="adunit-06e3f7bd76efe8d8" ad-type="video" ad-theme="white"></ad>
+  </view>
+  <view class="suc-bottom">
+    <button class="suc-btn back" bindtap="backPage">返回上一页</button>
+    <button class="suc-btn share" bindtap="bindShareTap">
+      拉票
+      <image class="shareImage" src='../../resource/icon/share.png'></image>
+    </button>
+  </view>
+  <view bindtap='bindShareTap' wx:if="{{isShareShow}}" class='giftBoxMask'>
+    <view catchtap='bindcat' class='shareBox'>
+      <view class='gifttitle'>快分享出去为TA加油吧~</view>
+      <view class='sharetools'>
+        <button hover-class="none" open-type='share' class='friends'>
+          <view class='friends'>
+            <view class='friendsimgbox'>
+              <image class='friendsimg' src='../../resource/icon/wechat.png '></image>
+            </view>
+            <view class='friendtitle'>好友/群</view>
+          </view>
+        </button>
+        <view catchtap='bindPosterTap' class='friends'>
+          <view class='friendsimgbox'>
+            <image class='friendsimg' src='../../resource/icon/pyq.png'></image>
+          </view>
+          <view class='friendtitle'>朋友圈海报</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="suc-footer">
+    我也要 <text bindtap="navigateToList" style="color: {{type === 1 ?'#1DB46A':(type === 0 ? '#F56364': '')}}">发起投票</text>
+  </view>
+</view>

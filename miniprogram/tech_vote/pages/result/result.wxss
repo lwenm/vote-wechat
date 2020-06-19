@@ -1,0 +1,285 @@
+/* miniprogram/tech_vote/pages/success/success.wxss */
+page {
+  background-color: #f8f8f8;
+}
+
+.suc-top {
+  text-align: center;
+  margin: 60rpx 0 40rpx 0;
+}
+
+.suc-top .icon {
+  color: #f9faf9
+}
+
+.suc-top .title {
+  font-size: 36rpx;
+  font-weight: bold;
+  margin: 35rpx 0;
+}
+
+.suc-top .content text {
+  color: #ff6600;
+  font-size: 38rpx;
+  padding: 0 4rpx;
+}
+
+.suc-top .sub {
+  font-size: 24rpx;
+}
+
+.suc-top .sub .text {
+  padding: 8rpx 15rpx;
+  border-radius: 3px;
+}
+.suc-top .sub .text.success {
+  color: #50B178;
+  background-color: #C4FFD9;
+}
+.suc-top .sub .text.fail {
+  color: #F56364;
+  background-color: #ffdada;
+}
+
+.suc-middle {
+  margin-top: 40rpx;
+  margin-bottom: 40rpx;
+}
+
+.suc-middle .suc-video {
+  width: 750rpx;
+}
+
+.suc-bottom {
+  display: flex;
+  /* height: 50rpx; */
+  padding: 0 100rpx;
+}
+
+.suc-bottom .suc-btn {
+  font-size: 36rpx;
+  border-radius: 50px;
+  color: #ffffff;
+  border: none;
+  background-color: #F75360;
+}
+
+.suc-bottom .suc-btn.back {
+  flex: 1;
+  margin-right: 30rpx;
+}
+.suc-bottom .suc-btn.share {
+  display: flex;
+  align-items: center;
+  width: 180rpx;
+  text-align: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.shareImage {
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 10rpx;
+}
+.giftBoxMask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+.giftBox {
+  padding: 20rpx;
+  background: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.gift-item {
+  display: inline-block;
+  vertical-align: middle;
+  width: 152rpx;
+  margin-left: 20rpx;
+  background: #f9f9f9;
+  text-align: center;
+  position: relative;
+  margin-bottom: 40rpx;
+  border-radius: 3px;
+}
+
+.gift-item-image {
+  width: 120rpx;
+  height: 120rpx;
+  display: block;
+  margin-left: 16rpx;
+}
+
+.addnum {
+  padding: 0px 20rpx;
+  font-size: 12px;
+  color: #fff;
+  background: #ff6000;
+  width: 100rpx;
+  border-radius: 40rpx;
+  margin-left: 6rpx;
+  margin-top: -10px;
+  letter-spacing: 2rpx;
+  line-height: 16px;
+  height: 16px;
+}
+
+.giftname {
+  font-size: 12px;
+  text-align: center;
+  font-weight: 500;
+  letter-spacing: 2rpx;
+  color: #000;
+}
+
+.giftmoney {
+  font-size: 10px;
+  text-align: center;
+  color: #737373;
+  letter-spacing: 2rpx;
+}
+
+.gifttitle {
+  font-size: 12px;
+  color: #737373;
+  text-align: center;
+  margin: 20rpx 0px;
+  position: relative;
+}
+
+.shareBox {
+  padding: 20rpx;
+  background: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.sharetools {
+  display: flex;
+}
+
+.friends {
+  flex: 1;
+  text-align: center;
+}
+
+.friendsimgbox {
+  background: rgb(247, 83, 96);
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  text-align: center;
+  margin-left: 137.5rpx;
+}
+
+.friendsimg {
+  width: 60rpx;
+  height: 60rpx;
+  margin-top: 10rpx;
+}
+
+.friendtitle {
+  font-size: 12px;
+  color: #737373;
+  margin: 20rpx 0px;
+}
+button{
+position:relative;
+display:block;
+margin-left:0px;
+margin-right:0px;
+padding-left:0px;
+padding-right:0px;
+box-sizing:border-box;
+font-size:12px;
+text-align:none;
+text-decoration:none;
+line-height:2.55555556;
+border-radius:0px;
+-webkit-tap-highlight-color:#fff;
+overflow:hidden;
+color:#000000;
+background-color:#fff;
+}
+button:active{
+  background: #fff
+}
+button::after{
+  border: none
+}
+
+.danmuitemConten{
+  padding: 5rpx 30rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 12px;
+  border-radius: 40rpx;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  opacity: 0;
+  position: absolute;
+  overflow: hidden;
+}
+.danmulist{
+  position: fixed;
+  height: 40rpx;
+  bottom: 200rpx;
+  left: 30rpx;
+  background: rgba(255, 255, 255,0);
+  right: 0;
+}
+.danmutipbox{
+  position: fixed;
+  height: 40rpx;
+  bottom: 140rpx;
+  line-height: 40rpx;
+  left: 30rpx;
+  right: 0;
+  color: #fff;
+  font-size: 12px;
+}
+.danmutip{
+  position: absolute;
+  background: rgba(0, 0, 0,0.8);
+  border-radius: 40rpx;
+  text-align: center;
+  padding:5rpx 30rpx;
+}
+.danmuinput{
+  border:1px solid #f0f0f0;
+  padding:16rpx 20rpx;
+  width: 410rpx;
+  border-top-left-radius: 50rpx;
+  border-bottom-left-radius: 50rpx;
+  font-size: 16px;
+  vertical-align: middle;
+  display: inline-block;
+  margin-left: 40rpx;
+}
+
+.suc-footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 80rpx;
+  text-align: center;
+  font-size: 35rpx;
+  line-height: 36rpx;
+  font-weight: bold;
+}

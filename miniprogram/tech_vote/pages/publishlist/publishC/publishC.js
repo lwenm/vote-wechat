@@ -4,6 +4,7 @@ Page({
   data: {
     index_mb:0,
     repeatVoteChange:false,
+    checkVoteChange: true,
     share_thumb:[],
     index_voteNum:0,
     // region: ['全部', '全部', '全部'],
@@ -113,6 +114,14 @@ Page({
     app.datalist.tp_repeat_enabled = that.data.repeatVoteChange?'1':'0'
     that.setVoteStorage();
   },
+  bindCheckVoteChange:function(){
+    let that = this;
+    that.setData({
+      checkVoteChange: !that.data.checkVoteChange
+    })
+    app.datalist.tp_check_enabled = that.data.checkVoteChange?'1':'0'
+    that.setVoteStorage();
+  },
   // bindmbChange:function(e){
   //   this.setData({
   //     index_mb:e.detail.value
@@ -152,6 +161,7 @@ Page({
     app.datalist.dq_ip_num = that.data.dq_ip_num;
     app.datalist.share_thumb=that.data.share_thumb;
     app.datalist.tp_repeat_enabled = that.data.repeatVoteChange?'1':'0';
+    app.datalist.tp_check_enabled = that.data.checkVoteChange?'1':'0';
     app.datalist.dq_enabled = that.data.areaIPChange ? '1' : '0';
     app.datalist.dq_value = that.data.region[0] + ',' + that.data.region[1] + ',' + that.data.region[2];
     app.datalist.list_enabled = that.data.list_enabled?'1':'0'

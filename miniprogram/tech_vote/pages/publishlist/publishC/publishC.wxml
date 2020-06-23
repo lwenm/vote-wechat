@@ -52,6 +52,11 @@
     <text class="static-cell">是否重复投票</text>
     <switch bindchange="bindRepeatVoteChange" checked="{{repeatVoteChange}}" class="switch-cell" color="rgb(247, 83, 96)"></switch>
   </view>
+  <view class="back-itemCell">
+    <image class="image-cell" src="../../../resource/icon/publish/repeat.png"></image>
+    <text class="static-cell">是否需要验证</text>
+    <switch bindchange="bindCheckVoteChange" checked="{{checkVoteChange}}" class="switch-cell" color="rgb(247, 83, 96)"></switch>
+  </view>
   <view class="lineA"></view>
   <view class="back-itemCell">
     <image class="image-cell" src="../../../resource/icon/publish/address.png"></image>

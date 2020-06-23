@@ -28,6 +28,7 @@ Page({
         reward: app.datalist.reward, //奖励
         reward_image: app.datalist.reward_image,
         tp_repeat_enabled: app.datalist.tp_repeat_enabled, //是否重复投票
+        tp_check_enabled: app.datalist.tp_check_enabled, //是否验证投票
         tp_everyday_num: app.datalist.tp_everyday_num, //每日投票次数
         dq_enabled: app.datalist.dq_enabled, //地区限制开关
         dq_value: app.datalist.dq_value, //活动限制地区

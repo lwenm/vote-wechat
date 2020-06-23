@@ -1,0 +1,15 @@
+<view class="showcheckbox">
+  <view class="showcheck">
+  <view class="showposition">
+    <canvas canvas-id='canvas1' class='canvas' ></canvas>
+    <canvas canvas-id='block' class='block' ></canvas>
+    <image  src="{{pic}}" class='three' style='top:{{y}}px;left:{{left}}px'></image>
+    <view class='container' bindtouchend="end">
+      <movable-area>
+        <movable-view wx:if="{{show}}" bindchange="move" damping="1" friction="1" direction="horizontal" class='view' x="{{left}}" y="{{0}}">-></movable-view>
+        <view class="succ" wx:else>验证成功</view>
+      </movable-area>
+    </view>
+  </view>
+  </view>
+</view>

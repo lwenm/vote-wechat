@@ -18,6 +18,9 @@ Page({
     voteSuccess:false,
     isload:false,
     canrefresh:false,
+    pizzleShow:false,
+    isOk:false,
+    checkImg: 1
   },
   bindWebviewTap:function(e){
     this.setData({
@@ -160,8 +163,18 @@ Page({
   bindDanMuInput:function(e){
     this.danmu = e.detail.value;
   },
-  bindPostTap: function(id) {
+  bindPostTap: function() {
     let that = this;
+    if (!+that.check) {
+      this.postTapTo();
+    } else {
+      that.setData({
+        pizzleShow: true
+      })
+    }
+  },
+  postTapTo () {
+    const that = this;
     app.util.request({
       'url': 'entry/wxapp/wxapp&r=vote.vote.dovote',
       'cachetime': '0',
@@ -175,26 +188,26 @@ Page({
           let obj = that.data.obj;
           obj.vote_num = datalist.data.data.join_num;
           obj.list = datalist.data.data.list;
-          if (that.data.enabled.func_pianshen==0){
-            if (that.data.votesuccess.activity_ad_enabled==0){
+          if (that.data.enabled.func_pianshen == 0) {
+            if (that.data.votesuccess.activity_ad_enabled == 0) {
               that.setData({
                 obj: obj
               })
               that.navigateResultPage(that.data.obj.id, 1, datalist.message);
-            }else{
+            } else {
               that.setData({
                 obj: obj,
                 voteSuccess: !that.data.voteSuccess
               })
             }
-          }else{
+          } else {
             // that.setData({
             //   obj: obj,
             // })
             // that.bindmessageTap(datalist.message);
             that.navigateResultPage(that.data.obj.id, 1)
           }
-        } else {         
+        } else {
           that.navigateResultPage(that.data.obj.id, 0, datalist.message);
         }
       }
@@ -347,7 +360,6 @@ Page({
   },
   bindVoteTap: function(e) {
     let that = this;
-
     if (typeof that.data.obj.dq_enabled != "undefined" && that.data.obj.dq_enabled == 1) {
       that.bindLocationTap();
     } else {
@@ -453,12 +465,16 @@ Page({
     })
   },
  onShow:function(){
+  this.setData({
+    checkImg: Math.floor(Math.random() * 9) + 1
+  })
   // if(this.data.canrefresh){
     this.init(this.id);
   // } 
  },
   init: function(id) {
     let that = this;
+    this.setData({ isOk:false });
     app.util.request({
       'url': 'entry/wxapp/wxapp&r=vote.vote.display',
       'cachetime': '0',
@@ -468,6 +484,7 @@ Page({
       },
       success(res) {
         console.log(res);
+        that.check = res.data.data.data.tp_check_enabled || 0
         if (res.data.data.code == 1) {
           wx.showModal({
             title: '提示',
@@ -573,7 +590,7 @@ Page({
   },
   
   onLoad: function(options) {
-   let that=this;
+    let that = this;
     this.id = options.id?options.id:options.scene;
     this.init(this.id);
     console.log(app.globalData)
@@ -604,7 +621,30 @@ Page({
       },
     })
   },
-
+  myEventListener: function (e) {
+    //获取到组件的返回值，并将其打印
+    wx.showToast({
+      title: '验证成功'
+    })
+    this.postTapTo()
+    this.setData({
+      isOk: true,
+      pizzleShow: false
+    })
+  },
+  flashcheck: function() {
+    const checkImg = this.data.checkImg;
+    this.setData({
+      checkImg: this.return10(checkImg)
+    })
+  },
+  return10: function(current) {
+    const rand = Math.floor(Math.random() * 9) + 1;
+    if (rand === current) {
+      return this.return10(current)
+    }
+    return rand;
+  },
   onShareAppMessage: function(res) {
     let that = this;
     that.danmulist= that.data.danmulist;

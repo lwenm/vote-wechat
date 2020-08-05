@@ -1,0 +1,28 @@
+<view class="verificationPuzzleContainer">
+  <view class="view-z-box">
+    <view class="view-z-container" style="width:{{width}}px;height:{{height}}px;">
+      <canvas class="canvas-shadow" style="z-index:51;width:{{width}}px;height:{{height}}px;" disable-scroll="false" bindtouchstart="uploadScaleStart" bindtouchmove="uploadScaleMove" bindtouchend="uploadScaleEnd" bindtap="mouseDown" canvas-id="canvasShadow"></canvas>
+      <canvas class="canvas-puzzle" style="width:{{width}}px;height:{{height}}px;" disable-scroll="false" bindtouchstart="uploadScaleStart" bindtouchmove="uploadScaleMove" bindtouchend="uploadScaleEnd" bindtap="mouseDown" canvas-id="canvasPuzzle"></canvas>
+      <image style="width:{{width}}px;height:{{height}}px;z-index:50;position: fixed;" src="{{oriSrc}}"></image>
+      <image wx:if="{{shadowShow}}" style="width:{{width}}px;height:{{height}}px;z-index:51;position: fixed;" src="{{imgShadow}}"></image>
+      <image wx:if="{{puzzleShow}}" style="width:{{width}}px;height:{{height}}px;z-index:55;position: fixed;transform:translateX({{translateX}}px);" src="{{imgPuzzle}}"></image>
+    </view>
+    <view class="flashcheck" catchtap="flashcheck">
+      <image style="z-index:57;position:absolute" src="/tech_vote/resource/icon/check.png"></image>
+    </view>
+  </view>
+  <view wx:if="{{!isOk}}" class='pathway' style="width:{{width}}px;height:100rpx;margin-top:10rpx" bindtouchend='onEnd' id='pathway'>
+    <view class="tips">
+      <text wx:if="{{isOk}}" style="color: #FFFFFF;">验证通过</text>
+      <text wx:else>拖动滑块拼图验证</text>
+    </view>
+    <view class="track" style="transform:translateX({{oldx}}px)"></view>
+    <movable-area>
+      <movable-view x="{{x}}" direction="horizontal" bindchange="onChange" class='{{isOk ? "active":""}}' id="track">
+      </movable-view>
+    </movable-area>
+    <view class="disabled" wx:if="{{isOk}}"></view>
+  </view>
+  <view wx:if="{{isOk}}" style="width:500rpx;height:40rpx;margin-top:100rpx;background-color:#7ac23c;color:#FFFFFF;display: flex;flex-direction: column;justify-content: center;align-items: center;font-size: 32rpx;">拼图验证成功
+  </view>
+</view>

@@ -4,36 +4,38 @@
  * 1.创建两个Canvas,一个用来当验证背景（底），一个用来当拼接块
  * 2.同坐标下一个
  */
-Page({
+  // tech_vote/components/checkcode/checkcode.js
+Component({
   /**
-   * 页面的初始数据
+   * 组件的属性列表
    */
-    data: {
-      img:'https://blogai.cn/static/uploads/82f6bfa51778a0c55d42a334321cabf1/20190613145020_78.png',
-      show: true,
-      width:'',
-      height:'',
-      pic:'',
-      y:'',
-      x:'',
-      left:0
-    },
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad: function (options) {
-    },
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
+  properties: {
+
+  },
+
+  /**
+   * 组件的初始数据
+   */
+  data: {
+    img: 'tech_vote/resource/check/1.jpg',
+    show: true,
+    width: '',
+    height: '',
+    pic: '',
+    y: '',
+    x: '',
+    left: 0
+  },
+  lifetimes: {
+    attached: function () {
+      // 在组件实例进入页面节点树时执行
       let that = this;
       wx.getSystemInfo({
         success: function (res) {
           that.windowWidth = res.windowWidth;
           that.windowHeight = res.windowHeight;
           let width = (res.windowWidth / 750) * 540;
-          let height = (res.windowHeight / 750) * 540;
+          let height = (res.windowHeight / 750) * 360;
           that.setData({
             width: width,
             height: height
@@ -42,24 +44,30 @@ Page({
       })
       const canvas = wx.createCanvasContext('canvas1');
       const block = wx.createCanvasContext('block'),
-      three = wx.createCameraContext('three');
+        three = wx.createCameraContext('three');
+      wx.getImageInfo({
+        src: that.data.img,
+        success (res) {
+          console.log(res);
+        }
+      })
       const img = that.data.img,
-        canvas_width = that.data.width ,
+        canvas_width = that.data.width,
         canvas_height = that.data.height * 0.3;
-      let l = 50, 
-      x = 150+Math.random()*(canvas_width-l-150), 
-      y = 10+Math.random()*(canvas_height-l-10);
+      let l = 50,
+        x = 150 + Math.random() * (canvas_width - l - 150),
+        y = 10 + Math.random() * (canvas_height - l - 10);
       that.setData({
-        block_w:l,
-        y :y,
-        x:x
+        block_w: l,
+        y: y,
+        x: x
       })
       canvas.drawImage(img, 0, 0, canvas_width, canvas_height);
       canvas.draw(false, setTimeout(() => {
         wx.canvasToTempFilePath({
           x: x,
           y: y,
-          width:l,
+          width: l,
           height: l,
           canvasId: 'canvas1',
           fileType: 'png',
@@ -75,48 +83,50 @@ Page({
         }, this)
       }, 500))
       block.beginPath()
-      block.moveTo(x,y)
-      block.lineTo(x,y+l)
-      block.lineTo(x+l,y+l)
-      block.lineTo(x+l,y)
-      block.globalCompositeOperation = 'xor' 
+      block.moveTo(x, y)
+      block.lineTo(x, y + l)
+      block.lineTo(x + l, y + l)
+      block.lineTo(x + l, y)
+      block.globalCompositeOperation = 'xor'
       block.fill()
       block.drawImage(img, 0, 0, canvas_width, canvas_height);
-      block.draw() 
+      block.draw()
     },
-    onShow: function () {
+    detached: function () {
+      // 在组件实例被从页面节点树移除时执行
     },
-    onHide: function () {
-    },
-    onUnload: function () {
-    },
-    move:function(res){
+  },
+  /**
+   * 组件的方法列表
+   */
+  methods: {
+    move: function (res) {
       let left = res.detail.x;
-      if (left>0){
+      if (left > 0) {
         this.setData({
           left: left
         })
       }
     },
-    end:function(res){
-      if(this.data.show) {
+    end: function (res) {
+      if (this.data.show) {
         let end = this.data.left,
-        moves = this.data.x;
-        if (Math.abs(end-moves)<2){
+          moves = this.data.x;
+        if (Math.abs(end - moves) < 2) {
           console.log('bingo')
           wx.showToast({
             title: '验证成功',
-            icon:'success',
-            duration:2000
+            icon: 'success',
+            duration: 2000
           })
           this.setData({
             show: false
           })
-          setTimeout(function(){
+          setTimeout(function () {
             wx.redirectTo({
               url: 'verification',
             })
-          },2000)
+          }, 2000)
         } else {
           this.setData({
             left: 0
@@ -124,5 +134,5 @@ Page({
         }
       }
     }
-  })
-  
+  }
+})

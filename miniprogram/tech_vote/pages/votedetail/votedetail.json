@@ -1,3 +1,5 @@
 {
-
+  "usingComponents": {
+    "puzzle": "/tech_vote/components/verification-puzzle/verification-puzzle"
+  }
 }

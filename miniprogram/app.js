@@ -5,7 +5,7 @@ App({
     domainPath:'',
     //加载微擎工具类
     util: util,
-    globalData:null,
+    globalData: null,
     userInfo: {
         sessionid: null,
     },

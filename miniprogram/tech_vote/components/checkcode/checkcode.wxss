@@ -1,0 +1,78 @@
+/* pages/index/vfblock.wxss */
+.showcheckbox {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.4);
+}
+.showcheckbox .showcheck {
+  width: 600rpx;
+  height: 570rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  position: absolute;
+  left: -10000rpx;
+  top: -10000rpx;
+  right: -10000rpx;
+  bottom: -10000rpx;
+  margin: auto;
+}
+.showcheckbox .showposition {
+  position: absolute;
+  left: 30rpx;
+  top: 30rpx;
+  width: 540rpx;
+}
+.container{
+  position: relative;
+  overflow: hidden;
+  margin-top: 380rpx;
+  padding-top: 30rpx;
+}
+canvas{
+  top: 0
+}
+.canvas{
+  left: -9999px;
+  position: absolute;
+  z-index: -1;
+}
+.block{
+  width: 540rpx;
+  height: 360rpx;
+  position: absolute; 
+}
+.three{
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  z-index: 0;
+  border: 1px dashed rgb(252, 252, 252);
+}
+movable-area {
+  width: 100%;
+  height: 100rpx;
+  background: #f8f8f8;
+}
+.succ {
+  width: 100%;
+  height: 100rpx;
+  background-color: #1AAD19;
+  color: #ffffff;
+  text-align: center;
+  line-height: 100rpx;
+  font-size: 36rpx;
+  border-radius: 10rpx;
+}
+.view {
+  position: absolute;
+  text-align: center;
+  height: 100rpx;
+  width: 100rpx;
+  line-height: 100rpx;
+  background: #1AAD19;
+  color: #fff;
+  border-radius: 10rpx;
+}

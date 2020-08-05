@@ -241,3 +241,12 @@
     </view>
   </view>
 </block>
+<view wx:if='{{pizzleShow}}' class="pizzle-shadow">
+  <view class="pizzle-box">
+    <puzzle
+      bind:flash="flashcheck"
+      isOk="{{isOk}}"
+      bind:result="myEventListener"
+src="https://tp.lce8.com/attachment/very/{{checkImg}}.jpg"></puzzle>
+  </view>
+</view>

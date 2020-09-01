@@ -17,12 +17,27 @@ Page({
     })
   },
   onLoad: function (options) {
-    console.log(options);
+    console.log(options, 'onload');
     app.util.setNBT(app.globalData.app_name);
-    let data = JSON.parse(options.data);
-    this.setData({
-      noticeData: data,
-      self: options.self
-    })
+    this.init(options);
   },
+  init: function (options) {
+    let that = this;
+    app.util.request({
+      'url': 'entry/wxapp/wxapp&r=activity.detail.display',
+      'cachetime': '0',
+      data: {
+        id: options.id,
+        pindex: 1,
+        order: 1
+      },
+      success: function(res) {
+        let datalist = res.data.data;
+        that.setData({
+          noticeData: datalist.activity,
+          self: options.self
+        })
+      }
+    });
+  }
 })

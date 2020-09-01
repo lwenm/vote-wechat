@@ -150,7 +150,7 @@ Page({
       share_thumb: app.datalist.share_thumb ? app.datalist.share_thumb:[],
       tp_everyday_num: app.datalist.tp_everyday_num ? app.datalist.tp_everyday_num : app.post.tp_everyday_num_arr[0],
       repeatVoteChange: app.datalist.tp_repeat_enabled == 1 ? true : false,
-      checkVoteChange: app.datalist.tp_check_enabled==1?true:false,
+      checkVoteChange: app.datalist.tp_check_enabled ? (app.datalist.tp_check_enabled == 1?true:false) : that.data.checkVoteChange,
       areaIPChange: app.datalist.dq_enabled==1?true:false,
       region: app.datalist.dq_value ? app.datalist.dq_value.split(',') : ['全部', '全部', '全部'],
       dq_ip_num: app.datalist.dq_ip_num ? app.datalist.dq_ip_num : app.post.dq_ip_num_arr[0],

@@ -278,7 +278,7 @@ Page({
       self = 1;
     }
     wx.navigateTo({
-      url: '../notice/notice?data=' + JSON.stringify(this.data.activity) + '&self=' + self
+      url: '../notice/notice?id='+ this.acid + '&self=' + self
     })
   },
   time2end: function(time) {
